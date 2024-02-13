@@ -25,7 +25,7 @@
                            {{-- userprofile model   --}}
                         <div id="dropdown" class="w-32 bg-gray-200 capitalize rounded-b shadow-md mt-4 absolute right-0 hidden">
                             <ul class="space-y-2">
-                                <li class="p-3 py-2 hover:bg-gray-300"><a href="">Profile</a></li>
+                                <li class="p-3 py-2 hover:bg-gray-300"><a href="{{route('posts.index')}}">Profile</a></li>
                                 <li class="p-3 py-2 hover:bg-gray-300"><a href="">Setting</a></li>
                                 <li class="p-3 py-2 hover:bg-gray-300"><a href="">Logout</a></li>
                             </ul>    
@@ -42,7 +42,7 @@
                 @if(!auth()->user())
 
     
-                <a href="/register/create" class="bg-indigo-500 px-4 py-2 flex justify-center items-center rounded-md space-x-3 hover:opacity-90">
+                <a href="/register/create" class="bg-indigo-700 px-4 py-2 flex justify-center items-center rounded-md space-x-3 hover:opacity-90">
                 
                     <span class="text-white">Register</span>
                 </a>

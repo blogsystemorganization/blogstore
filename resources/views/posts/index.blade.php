@@ -1,14 +1,14 @@
 
-@extends('layouts/adminindex')
+
+@extends('profiles.index')
 
 
 
-@section('content')
 
-<section class="container mx-auto mt-10">
-
+@section('posts')
+<div class="w-full">
     <div class="grid grid-cols-3 gap-10">
-    
+
         <div class="border border-gray-100 p-4 rounded-md">
 
             <div class="mb-5">
@@ -51,11 +51,5 @@
         
     </div>
 
-
-
-
-
-
-</section>
-
+</div>
 @endsection

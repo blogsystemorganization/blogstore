@@ -3,6 +3,7 @@
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CatogeryController;
 use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\PostsController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -46,3 +47,5 @@ Route::post('/logout', [LogoutController::class, 'destory']);
 Route::get('/homepages/index', [HomepageController::class, 'index'])->name('homepages.index');
 
 Route::get('/profiles/index', [ProfilesController::class, 'index'])->name('profiles.index');
+
+Route::get('/posts/index', [PostsController::class, 'index'])->name('posts.index');
