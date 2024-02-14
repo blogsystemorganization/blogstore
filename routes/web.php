@@ -10,7 +10,9 @@ use Illuminate\Support\Facades\Route;
 
 
 use App\Http\Controllers\HomepageController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProfilesController;
+use Illuminate\Auth\Events\Logout;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,7 +43,8 @@ Route::post('/register/create', [RegisterController::class, 'store']);
 // Logout ROute
 Route::post('/logout', [LogoutController::class, 'destory']);
 
-
+Route::get("/login/create",[LoginController::class , "loginIndex"])->name("login.create");
+Route::post("/login/store",[LoginController::class , "login"])->name("login.store");
 
 
 Route::get('/homepages/index', [HomepageController::class, 'index'])->name('homepages.index');
