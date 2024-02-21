@@ -1,18 +1,9 @@
 <?php
 
-use App\Http\Controllers\BlogController;
-use App\Http\Controllers\CatogeryController;
-use App\Http\Controllers\LogoutController;
-use App\Http\Controllers\PostsController;
-use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\UserController;
-use Illuminate\Support\Facades\Route;
-
-
 use App\Http\Controllers\HomepageController;
-use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProfilesController;
-use Illuminate\Auth\Events\Logout;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,30 +16,25 @@ use Illuminate\Auth\Events\Logout;
 |
 */
 
-Route::get('/', [BlogController::class, 'index']);
-Route::get('/{blog:slug}', [BlogController::class, 'show']);
+Route::get('/', function () {
+    return view('welcome');
+});
 
-// Find Category Route
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/categories/{category:id}', [CatogeryController::class, 'index']);
+Route::middleware('auth')->group(function () {
 
-// Username Route
+    // :: breeze profile controller 
+    // Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    // Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    // Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-Route::get('/users/{user:username}', [UserController::class, 'index']);
+    Route::resource('/homepages', HomepageController::class);
 
-// Regigster Route
-Route::get('/register/create', [RegisterController::class, 'create']);
-Route::post('/register/create', [RegisterController::class, 'store']);
+    // our profile(s)controller 
+    Route::resource('/profile', ProfileController::class);
+});
 
-// Logout ROute
-Route::post('/logout', [LogoutController::class, 'destory']);
-
-Route::get("/login/create",[LoginController::class , "loginIndex"])->name("login.create");
-Route::post("/login/store",[LoginController::class , "login"])->name("login.store");
-
-
-Route::get('/homepages/index', [HomepageController::class, 'index'])->name('homepages.index');
-
-Route::get('/profiles/index', [ProfilesController::class, 'index'])->name('profiles.index');
-
-Route::get('/posts/index', [PostsController::class, 'index'])->name('posts.index');
+require __DIR__ . '/auth.php';
