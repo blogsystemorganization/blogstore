@@ -18,4 +18,9 @@ class HomepageController extends Controller
         // $title = "My Blog Title";
         return view('homepages/index');
     }
+
+    public function show(){
+        
+    }
 }
+
