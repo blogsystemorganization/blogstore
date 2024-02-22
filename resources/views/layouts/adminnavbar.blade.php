@@ -8,8 +8,8 @@
                     <img src="https://www.freeiconspng.com/thumbs/blogger-logo-icon-png/black-square-blogger-logo-icon-png-8.png" class="w-16" alt="">
                     <h1 class=" text-xl">Blog System</h1>
                 </div>
-         
-          
+
+
             </div>
 
             <div class="flex justify-center items-center space-x-10">
@@ -18,29 +18,30 @@
                     <li><a href="">Blog</a></li>
                     <li><a href="">About</a></li>
                     <li class="relative" onclick="document.getElementById('dropdown').classList.toggle('hidden')">
-                        User Profile 
+                        User Profile
                         <i class="fas fa-user ms-2"></i>
-                    
-                
-                           {{-- userprofile model   --}}
+
+
+                        {{-- userprofile model   --}}
                         <div id="dropdown" class="w-32 bg-gray-200 capitalize rounded-b shadow-md mt-4 absolute right-0 hidden">
                             <ul class="space-y-2">
                                 <li class="p-3 py-2 hover:bg-gray-300"><a href="{{route('profile.index')}}">Profile</a></li>
                                 <li class="p-3 py-2 hover:bg-gray-300"><a href="">Setting</a></li>
                                 <li class="p-3 py-2 hover:bg-gray-300"><a href="javascript:void(0);" class="dropdown-item" onclick="event.preventDefault(); document.getElementById('logoutform').submit()">Logout</a>
-                                    <form id="logoutform" action="{{route('logout')}}" method="POST">@csrf</form></li>
+                                    <form id="logoutform" action="{{route('logout')}}" method="POST">@csrf</form>
+                                </li>
 
-                             
-                            </ul>    
+
+                            </ul>
                         </div>
-                
-                </li>
-                    
-             
+
+                    </li>
+
+
                 </ul>
 
 
-               
+
             </div>
         </div>
 
@@ -60,7 +61,7 @@
 <section class="container mx-auto">
     <div class="w-full px-32 py-10">
 
-        
+
         {{-- search  --}}
         <form action="" method="">
             <div class="w-full flex justify-center items-center relative">
@@ -75,26 +76,18 @@
         </form>
 
 
-        
-            {{-- categories  --}}
+
+        {{-- categories  --}}
         <div class="flex flex-wrap justify-center items-center mt-10 space-x-10 space-y-5">
             <div class="text-white bg-gray-700 rounded-lg px-5 py-2"><a href="">All</a></div>
             <div class="text-white bg-gray-700 rounded-lg px-5 py-2"><a href="">Education</a></div>
             <div class="text-white bg-gray-700 rounded-lg px-5 py-2"><a href="">Knowledge</a></div>
-            <div class="text-white bg-gray-700 rounded-lg px-5 py-2"><a href="">Knowledge</a></div>
-            <div class="text-white bg-gray-700 rounded-lg px-5 py-2"><a href="">Knowledge</a></div>
-            <div class="text-white bg-gray-700 rounded-lg px-5 py-2"><a href="">Knowledge</a></div>
-            <div class="text-white bg-gray-700 rounded-lg px-5 py-2"><a href="">Knowledge</a></div>
-            <div class="text-white bg-gray-700 rounded-lg px-5 py-2"><a href="">Knowledge</a></div>
-            <div class="text-white bg-gray-700 rounded-lg px-5 py-2"><a href="">Knowledge</a></div>
-            <div class="text-white bg-gray-700 rounded-lg px-5 py-2"><a href="">Knowledge</a></div>
-            <div class="text-white bg-gray-700 rounded-lg px-5 py-2"><a href="">Knowledge</a></div>
-            <div class="text-white bg-gray-700 rounded-lg px-5 py-2"><a href="">Knowledge</a></div>
+            <div class="text-white bg-gray-700 rounded-lg px-5 py-2"><a href="">Humanities</a></div>
         </div>
-    
-        
+
+
     </div>
 
-  
-     
+
+
 </section>
