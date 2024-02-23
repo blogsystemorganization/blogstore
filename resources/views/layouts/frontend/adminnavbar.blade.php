@@ -39,14 +39,14 @@
                         <div id="dropdown" class="capitalize mt-4 absolute right-0  hidden">
                             <ul class="min-w-36 bg-gray-200">
 
-                                <li><a href="{{route('profile.index')}}" class="w-full inline-block hover:bg-gray-300 p-3">Profile</a></li>
-                                <li><a href="" class="w-full inline-block hover:bg-gray-300 p-3">Setting</a></li>
+                                <li><a href="{{route('profile.index')}}" class="w-full inline-block hover:bg-gray-300 p-3 me-1"><i class="fas fa-user"></i> Profile</a></li>
+                                <li><a href="" class="w-full inline-block hover:bg-gray-300 p-3"><i class="fas fa-cog me-1"></i>Setting</a></li>
 
                                 @if( Auth::user()->id === 1 )
-                                <li><a href="" class="w-full text-nowrap inline-block hover:bg-gray-300 p-3">Switch to dashboard</a></li>
+                                <li><a href="{{route('dashboards.index')}}" class="w-full text-nowrap inline-block hover:bg-gray-300 p-3"><i class="fas fa-sync-alt me-1"></i> Switch to dashboard</a></li>
                                 @endif
 
-                                <li><a href="javascript:void(0);" class="w-full inline-block hover:bg-gray-300 p-3 dropdown-item"   onclick="event.preventDefault(); document.getElementById('logoutform').submit()">Logout</a>
+                                <li><a href="javascript:void(0);" class="w-full inline-block hover:bg-gray-300 p-3 dropdown-item"   onclick="event.preventDefault(); document.getElementById('logoutform').submit()"><i class="fas fa-power-off me-1"></i> Logout</a>
                                     <form id="logoutform" action="{{route('logout')}}" method="POST">@csrf</form></li>
                                
                             </ul>    

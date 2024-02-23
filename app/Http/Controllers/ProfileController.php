@@ -51,14 +51,6 @@ class ProfileController extends Controller
     }
 
 
-
-
-
-
-
-
-
-
     // breeze default 
 
     // public function edit(Request $request): View
