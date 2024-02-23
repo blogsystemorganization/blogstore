@@ -58,7 +58,7 @@
 <section class="container mx-auto mt-10">
 
     <div class="grid grid-cols-3 gap-10">
-    
+        @foreach ($blogs as $blog)
         <div class="border border-gray-100 p-4 rounded-md">
 
             <div class="mb-5">
@@ -67,8 +67,8 @@
                         <img src="" alt="">
                     </div>
                     <div class="flex flex-col justify-center items-start">
-                        <span class="text-sm font-medium">Hsu Myat Moe</span>
-                        <span class="text-xs text-gray-500">14.Feb.2024 1:44 AM</span>
+                        <span class="text-sm font-medium">{{$blog->user->name}}</span>
+                        <span class="text-xs text-gray-500">{{$blog->created_at}}</span>
 
                     </div>
 
@@ -82,23 +82,23 @@
             </div>
 
             <div class="mt-3 h-[200px]">
-                <h1 class="font-bold uppercase text-lg mb-3">This is title one</h1>
+                <h1 class="font-bold uppercase text-lg mb-3">{{$blog->title}}</h1>
                 <p class="text-gray-500">
                     <a class="hover:opacity-90 font-bold font-medium" href="">
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quaerat aliquid, praesentium quos quidem porro laborum consectetur inventore debitis eveniet dolore omnis cum quae corrupti pariatur! Consequatur at totam alias debitis!
+                        {{$blog->body}}
                     </a>
                 </p>
 
-              
+
             </div>
-       
+
         </div>
 
+        @endforeach
 
 
-        
 
-        
+
     </div>
 
 
