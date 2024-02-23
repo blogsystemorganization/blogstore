@@ -28,12 +28,12 @@ Route::middleware('auth')->group(function () {
 
     // :: breeze profile controller 
     // Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    // Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     // Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     // Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::resource('/homepages', HomepageController::class);
 
-    // our profile(s)controller 
     Route::resource('/profile', ProfileController::class);
 });
 
