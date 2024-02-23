@@ -230,6 +230,7 @@
 
 					<li><a href="#"><i class="fa-solid fa-user"></i> Profile</a></li>
 					<li><a href="#"><i class="fa-solid fa-wallet"></i> My Wallet</a></li>
+					<li><a href="{{route('homepages.index')}}"><i class="fa-solid fa-rotate"></i> Switch to FE</a></li>
 					<li><a href="#"><i class="fa-solid fa-cog"></i> Setting</a></li>
 					<li><a href="#"><i class="fa-solid fa-lock"></i> Lock screen</a></li>
 					<li><a href="javascript:void(0);" onclick="event.preventDefault(); document.getElementById('logoutform').submit()"><i class="fa-solid fa-power-off"></i> Logout</a>
