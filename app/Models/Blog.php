@@ -10,7 +10,7 @@ class Blog extends Model
 {
     use HasFactory;
 
-    protected $filiable = ['title', 'slug', 'intro', 'body'];
+    protected $filiable = ['title', 'slug','category_id', 'user_id', 'intro', 'body'];
 
     public function category()
     {

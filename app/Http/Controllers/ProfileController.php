@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
+use App\Models\Blog;
+use App\Models\Category;
+use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -15,13 +18,36 @@ class ProfileController extends Controller
 
     public function index()
     {
-        return view('profile.index');
+        $user_id = Auth::user()->id;
+        $user = User::where("id",$user_id)->get();
+        $blogs = Blog::where("user_id",$user_id)->get();
+        return view('profile.index',["blogs"=>$blogs, "user"=>$user]);
     }
 
 
     public function edit()
     {
         return view('profile.edit');
+    }
+
+    public function create(){
+        $categories = Category::all();
+        return view("profile.addNewBlog",['categories'=>$categories]);
+    }
+
+    public function store(Request $request){
+        $blog = new Blog();
+
+        $blog->title = $request->title;
+        $blog->slug = $request->title;
+        $blog->category_id = $request->category_id;
+        $blog->intro = $request->intro;
+        $blog->body = $request->body;
+        $blog->user_id = Auth::user()->id;
+        // $blog->publish = $request->publish;
+        $blog->save();
+
+        return redirect("profile");
     }
 
 
