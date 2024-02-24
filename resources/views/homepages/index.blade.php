@@ -12,13 +12,13 @@
 </div>
 
 
-<section class="container mx-auto">
-    <div class="w-full md:px-32 px-10 py-10">
+<section class="container mx-auto px-4">
+    <div class="w-full md:px-32 sm:px-4 py-10">
 
         
         {{-- search  --}}
-        <form action="" method="" class="w-full bg-red-400 flex justify-center">
-            <div class="lg:w-1/2 md:w-full relative">
+        <form action="" method="" class="w-full flex justify-center">
+            <div class="lg:w-1/2 w-full relative">
                 <input type="search" name="search" class="w-full bg-gray-200 rounded-l focus:outline-none focus:ring px-8 py-4" placeholder="Search..." />
 
                 <button type="submit" class="bg-gray-300 rounded-r-md py-4 px-5 absolute right-0">
@@ -49,17 +49,17 @@
 </section>
 
 
-<section class="container mx-auto mt-10">
+<section class="container mx-auto mt-10 px-4">
 
     <div class="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-10">
         @foreach ($blogs as $blog)
 
-        <div class="bg-slate-300 border border-gray-100 p-4 rounded-md hover:bg-slate-100 transition-all duration-300">
+        <div class="bg-slate-300 border border-gray-100 p-4 rounded-md hover:bg-slate-100 hover:border hover:border-2 hover:border-slate-600 transition-all duration-300">
 
             <div class="mb-5">
                 <div class="w-full flex justify-start items-center space-x-3">
-                    <div class="w-10 h-10 rounded-full bg-gray-200">
-                        <img src="" alt="">
+                    <div class="w-10 h-10 rounded-full bg-gray-200 hover:border hover:border-2 hover:border-red-500 transition-all duration-300 ">
+                        <img src="" alt="" />
                     </div>
                     <div class="flex flex-col justify-center items-start">
                         <span class="text-sm font-medium">{{$blog->user->name}}</span>

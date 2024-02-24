@@ -1,13 +1,13 @@
 <section>
     <!-- nav  -->
-    <nav class="container h-16 bg-[#f4f4f4] mx-auto px-10">
+    <nav class="container h-16 bg-[#f4f4f4] mx-auto lg:px-10 md:px-6">
         <div class="h-full flex justify-between items-center">
             <div class="flex items-center space-x-10">
 
                 <div class="flex justify-center items-center space-x-2">
                  <a href="{{route('homepages.index')}}" class="flex justify-center items-center cursor-pointer">
                     <img src="https://www.freeiconspng.com/thumbs/blogger-logo-icon-png/black-square-blogger-logo-icon-png-8.png" class="w-16" alt="" />
-                    <h1 class=" text-xl">Blog System</h1>
+                    <h1 class="lg:text-xl md:text-md">Blog System</h1>
                  </a>
                 </div>
          
@@ -16,9 +16,10 @@
 
             <div class="flex justify-center items-center space-x-10">
 
-                <ul class="flex justify-center items-center text-sm uppercase space-x-10">
-                    <li><a href="">Blog</a></li>
-                    <li><a href="">About</a></li>
+                <ul class="flex justify-center items-center text-sm uppercase space-x-4">
+
+                    <li><a href="#" class="font-bold">Blog</a></li>
+                    <li><a href="#" class="font-bold">About</a></li>
 
                     <li class="w-10 h-10 bg-gray-200 rounded-full flex justify-center items-center relative p-3"  onclick="document.getElementById('dropdown-noti').classList.toggle('hidden')">
                    
@@ -27,14 +28,16 @@
                             <span>5</span>    
                         </span> 
 
-            
-               </li>
+                    </li>
                 
                     <li class="relative cursor-pointer" onclick="document.getElementById('dropdown').classList.toggle('hidden')">
-                        User Profile 
-                        <i class="fas fa-user ms-2"></i>
-                    
-                
+                        <div class="flex justify-between items-center">
+                            <div class="w-[35px] h-[35px] rounded-full">
+                                <img src="{{asset('assets/img/profile.avif')}}" class="w-full h-full object-cover rounded-full" alt="profile" />
+                            </div>
+                            <i class="fas fa-user text-lg text-slate-800 mx-2"></i>
+                        </div> 
+                        
                            {{-- userprofile model   --}}
                         <div id="dropdown" class="capitalize mt-4 absolute right-0  hidden">
                             <ul class="min-w-36 bg-gray-200">
@@ -52,20 +55,10 @@
                             </ul>    
                         </div>
                 
-                </li>
-                    
-             
+                    </li>                   
                 </ul>
-
-
-               
             </div>
         </div>
-
-
-        
-
-
     </nav>
 </section>
 
