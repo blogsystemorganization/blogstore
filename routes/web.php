@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProfilesController;
@@ -36,7 +37,7 @@ Route::middleware('auth')->group(function () {
     // Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::resource('/homepages', HomepageController::class);
-
+    Route::get("/blogs/{id}",[BlogController::class,"detail"])->name("blog.detail");
     Route::resource('/profile', ProfileController::class);
 });
 

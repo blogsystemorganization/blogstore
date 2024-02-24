@@ -105,7 +105,7 @@
                         <div class="mt-3 h-[200px]">
                             <h1 class="font-bold uppercase text-lg mb-3">{{$blog->title}}</h1>
                             <p class="text-gray-500">
-                                <a class="hover:opacity-90 font-bold font-medium" href="">
+                                <a class="hover:opacity-90 font-bold font-medium" href="blogs/{{$blog->id}}">
                                     {{$blog->body}}
                                 </a>
                             </p>
