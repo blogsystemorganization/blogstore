@@ -6,7 +6,7 @@
 
                 <div class="flex justify-center items-center space-x-2">
                  <a href="{{route('homepages.index')}}" class="flex justify-center items-center cursor-pointer">
-                    <img src="https://www.freeiconspng.com/thumbs/blogger-logo-icon-png/black-square-blogger-logo-icon-png-8.png" class="w-16" alt="">
+                    <img src="https://www.freeiconspng.com/thumbs/blogger-logo-icon-png/black-square-blogger-logo-icon-png-8.png" class="w-16" alt="" />
                     <h1 class=" text-xl">Blog System</h1>
                  </a>
                 </div>
