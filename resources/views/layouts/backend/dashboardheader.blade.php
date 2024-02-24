@@ -17,7 +17,7 @@
     <link href="{{asset('assets/img/logo.png')}}" rel="icon" type="img/png" size="16x16" />
 
     <!--custom css -->
-    <link href="{{asset('assets/dist/css/style.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{'http://localhost:8000/assets/dist/css/style.css'}}" rel="stylesheet" type="text/css" />
 
     @yield('css')
 

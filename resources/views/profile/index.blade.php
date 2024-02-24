@@ -27,7 +27,7 @@
                   </div>
 
                     <div class="mt-5">
-                        <h4 class="text-lg font-medium">{{$user[0]->name}}</h4>
+                        <h4 class="text-lg font-medium">{{$user->name}}</h4>
                         <div>
                             <span class="text-sm text-gray-500">Followers.1000</span>
                         </div>
@@ -89,7 +89,7 @@
                                 </div>
                                 <div class="flex flex-col justify-center items-start">
                                     <span class="text-sm font-medium">{{$blog->user->name}}</span>
-                                    <span class="text-xs text-gray-500">{{$blog->created_at}}</span>
+                                    <span class="text-xs text-gray-500">{{$blog->created_at->format("d-M-y")}}</span>
             
                                 </div>
             
@@ -104,9 +104,9 @@
             
                         <div class="mt-3 h-[200px]">
                             <h1 class="font-bold uppercase text-lg mb-3">{{$blog->title}}</h1>
-                            <p class="text-gray-500">
-                                <a class="hover:opacity-90 font-bold font-medium" href="">
-                                    {{$blog->body}}
+                            <p class="text-gray-700">
+                                <a class="hover:text-gray-600 font-bold font-medium" href="blogs/{{$blog->id}}">
+                                    {{Str::limit($blog->body,50)}}
                                 </a>
                             </p>
             

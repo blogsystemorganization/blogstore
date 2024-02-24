@@ -32,19 +32,11 @@
 
         
             {{-- categories  --}}
-        <div class="flex flex-wrap justify-center items-center mt-10 space-x-10 space-y-5">
+        <div class="flex flex-wrap justify-center items-center mt-10 space-x-10 gap-2">
             <div class="text-white bg-gray-700 rounded-lg px-5 py-2"><a href="">All</a></div>
-            <div class="text-white bg-gray-700 rounded-lg px-5 py-2"><a href="">Education</a></div>
-            <div class="text-white bg-gray-700 rounded-lg px-5 py-2"><a href="">Knowledge</a></div>
-            <div class="text-white bg-gray-700 rounded-lg px-5 py-2"><a href="">Knowledge</a></div>
-            <div class="text-white bg-gray-700 rounded-lg px-5 py-2"><a href="">Knowledge</a></div>
-            <div class="text-white bg-gray-700 rounded-lg px-5 py-2"><a href="">Knowledge</a></div>
-            <div class="text-white bg-gray-700 rounded-lg px-5 py-2"><a href="">Knowledge</a></div>
-            <div class="text-white bg-gray-700 rounded-lg px-5 py-2"><a href="">Knowledge</a></div>
-            <div class="text-white bg-gray-700 rounded-lg px-5 py-2"><a href="">Knowledge</a></div>
-            <div class="text-white bg-gray-700 rounded-lg px-5 py-2"><a href="">Knowledge</a></div>
-            <div class="text-white bg-gray-700 rounded-lg px-5 py-2"><a href="">Knowledge</a></div>
-            <div class="text-white bg-gray-700 rounded-lg px-5 py-2"><a href="">Knowledge</a></div>
+            @foreach($categories as $category)
+            <div class="text-white bg-gray-700 rounded-lg px-5 py-2"><a href="">{{$category->name}}</a></div>
+            @endforeach
         </div>
     
         
@@ -68,7 +60,7 @@
                     </div>
                     <div class="flex flex-col justify-center items-start">
                         <span class="text-sm font-medium">{{$blog->user->name}}</span>
-                        <span class="text-xs text-gray-500">{{$blog->created_at}}</span>
+                        <span class="text-xs text-gray-500">{{$blog->created_at->format("d-M-y")}}</span>
 
                     </div>
 
@@ -84,8 +76,8 @@
             <div class="mt-3 h-[200px]">
                 <h1 class="font-bold uppercase text-lg mb-3">{{$blog->title}}</h1>
                 <p class="text-gray-500">
-                    <a class="hover:opacity-90 font-bold font-medium" href="">
-                        {{$blog->body}}
+                    <a class="hover:opacity-90 font-bold font-medium" href="blogs/{{$blog->id}}">
+                        {{Str::limit($blog->body,50)}}
                     </a>
                 </p>
 

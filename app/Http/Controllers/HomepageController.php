@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
+use App\Models\Category;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Str;
 class HomepageController extends Controller
 {
     public function index()
@@ -17,7 +18,8 @@ class HomepageController extends Controller
         // // $blogs = Blog::with('category', 'user')->orderBy('title')->paginate(3); // fix n+1 problem before looping
         // $title = "My Blog Title";
         return view('homepages/index', [
-            "blogs" => Blog::all()
+            "blogs" => Blog::all(),
+            "categories" => Category::all()
         ]);
     }
 
