@@ -27,7 +27,7 @@
                   </div>
 
                     <div class="mt-5">
-                        <h4 class="text-lg font-medium">{{$user[0]->name}}</h4>
+                        <h4 class="text-lg font-medium">{{$user->name}}</h4>
                         <div>
                             <span class="text-sm text-gray-500">Followers.1000</span>
                         </div>
