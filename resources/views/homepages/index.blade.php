@@ -32,7 +32,7 @@
 
         
             {{-- categories  --}}
-        <div class="flex flex-wrap justify-center items-center mt-10 space-x-10">
+        <div class="flex flex-wrap justify-center items-center mt-10 space-x-10 gap-2">
             <div class="text-white bg-gray-700 rounded-lg px-5 py-2"><a href="">All</a></div>
             @foreach($categories as $category)
             <div class="text-white bg-gray-700 rounded-lg px-5 py-2"><a href="">{{$category->name}}</a></div>
