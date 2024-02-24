@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 use Symfony\Component\HttpKernel\Profiler\Profile;
+use Illuminate\Support\Str;
 
 class ProfileController extends Controller
 {
@@ -20,7 +21,7 @@ class ProfileController extends Controller
     {
         $user_id = Auth::user()->id;
         $user = User::where("id",$user_id)->first();
-        $blogs = Blog::where("user_id",$user_id)->get();
+        $blogs = Blog::where("user_id",$user_id)->orderBy("created_at",'desc')->get();
         return view('profile.index',["blogs"=>$blogs, "user"=>$user]);
     }
 
