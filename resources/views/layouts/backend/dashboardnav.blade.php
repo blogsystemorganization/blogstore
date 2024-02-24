@@ -5,15 +5,15 @@
 		<div class="left-bar">
 
 			<div class="logo">
-				<a href="index.html">
+				<a href="{{route('dashboards.index')}}" class="flex items-center">
 					<span class="icon">
-						<i class="fa-solid fa-book"></i>
+						<img src="https://www.freeiconspng.com/thumbs/blogger-logo-icon-png/black-square-blogger-logo-icon-png-8.png" class="w-10 bg-white rounded me-2" alt="" />
 					</span>
-					<span class="title">NAZOX</span>
+					<span class="title text-[25px] text-red-500">Blog System</span>
 				</a>
 			</div>
 
-			<div class="toggle">
+			<div class="ms-[-20px] toggle">
 				<i class="fa-solid fa-bars-staggered"></i>
 			</div>
 
