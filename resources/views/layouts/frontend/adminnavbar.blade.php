@@ -1,6 +1,6 @@
-<section>
-    <!-- nav  -->
-    <nav class="container h-16 bg-[#f4f4f4] mx-auto lg:px-10 md:px-6">
+<section class="sticky top-0 z-10">
+    <!-- start nav  -->
+    <nav class="container h-16 bg-[#f4f4f4] mx-auto lg:px-10 md:px-6  md:border-b-none shadow-lg border-b-2 border-gray-300 shadow-gray-300 ">
         <div class="h-full flex justify-between items-center">
             <div class="flex items-center space-x-10">
 
@@ -18,8 +18,8 @@
 
                 <ul class="flex justify-center items-center text-sm uppercase space-x-4">
 
-                    <li><a href="#" class="font-bold">Blog</a></li>
-                    <li><a href="#" class="font-bold">About</a></li>
+                    <li><a href="#" class="font-bold hover:text-red-600 transition-color duration-300">Blog</a></li>
+                    <li><a href="#" class="font-bold hover:text-red-600 transition-color duration-300">About</a></li>
 
                     <li class="w-10 h-10 bg-gray-200 rounded-full flex justify-center items-center relative p-3"  onclick="document.getElementById('dropdown-noti').classList.toggle('hidden')">
                    
@@ -35,11 +35,11 @@
                             <div class="w-[35px] h-[35px] rounded-full">
                                 <img src="{{asset('assets/img/profile.avif')}}" class="w-full h-full object-cover rounded-full" alt="profile" />
                             </div>
-                            <i class="fas fa-user text-lg text-slate-800 mx-2"></i>
+                            <i class="fas fa-user text-lg text-slate-800 mx-2 hover:text-red-700 transition-color duration-300"></i>
                         </div> 
                         
                            {{-- userprofile model   --}}
-                        <div id="dropdown" class="capitalize mt-4 absolute right-0  hidden">
+                        <div id="dropdown" class="capitalize mt-4 absolute right-0 hidden">
                             <ul class="min-w-36 bg-gray-200">
 
                                 <li><a href="{{route('profile.index')}}" class="w-full inline-block hover:bg-gray-300 p-3 me-1"><i class="fas fa-user"></i> Profile</a></li>
@@ -60,5 +60,7 @@
             </div>
         </div>
     </nav>
+    <!-- end nav -->
+
 </section>
 

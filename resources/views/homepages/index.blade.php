@@ -2,18 +2,16 @@
 
 @section('content')
 
-
-
-<div class="container mx-auto flex flex-col justify-center items-center pt-10 pb-8">
-    <h1 class="text-4xl font-medium uppercase mb-3">Blogs</h1>
+<div class="container mx-auto flex flex-col justify-center items-center pt-10 pb-4">
+    <h1 class="text-4xl font-bold uppercase mb-1">Blogs</h1>
     <div>
-        <span>Knowledge is power.</span>
+        <span class="text-lg">Knowledge is power.</span>
     </div>
 </div>
 
 
 <section class="container mx-auto px-4">
-    <div class="w-full md:px-32 sm:px-4 py-10">
+    <div class="w-full md:px-32 sm:px-4 py-6">
 
         
         {{-- search  --}}
@@ -49,7 +47,7 @@
 </section>
 
 
-<section class="container mx-auto mt-10 px-4">
+<section class="container mx-auto mt-10 md:px-0 px-4">
 
     <div class="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-10">
         @foreach ($blogs as $blog)
