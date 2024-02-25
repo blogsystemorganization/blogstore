@@ -7,9 +7,10 @@
     @section('content')
 
         <h3 class="text-[25px] text-gray-600 container mx-auto px-10 font-bold my-8 underline underline-offset-8 tracking-wide">Add New Blog</h3>
-        <form action="{{route('profile.store')}}" method="POST"
+        <form action="{{route('blogs.update',['blog'=>$blog->id])}}" method="POST"
             class="container rounded-lg mx-auto p-10">
             @csrf
+            @method("PUT")
 
             <div class="my-3">
                 <label class="block text-md mb-3 text-gray-600 font-semibold" for="name">Blog Title</label>
@@ -33,11 +34,11 @@
                 <div class="w-1/2 my-3">
                     <label class="block text-md mb-3 text-gray-600 font-semibold" for="category">Category</label>
                     <select name="category_id" id="category" class="w-full border rounded-md focus:outline-none focus:bg-[bisque] py-2 px-3">
-                        <option value="" selected disabled required>{{$blog->category->name}}</option>
+                        <option value="" selected disabled required>Choose your blog's category</option>
                         @foreach($categories as $category)
-                        <option value="{{$category->id}}">{{$category->name}}</option>
+                            <option value="{{ $category->id }}" @if(old('category_id', $blog->category_id) == $category->id) selected @endif>{{ $category->name }}</option>
                         @endforeach
-                    </select>
+                    </select>                    
                 </div>
             </div>
 

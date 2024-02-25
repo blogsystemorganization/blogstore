@@ -32,7 +32,7 @@
                         <form action="{{route('blogs.destroy',['blog' => $blog->id])}}" method="POST">
                             @csrf
                             @method('DELETE')
-                            <a href="{{route('blogs.edit',['blog'=>$blog->id])}}" class="text-white bg-red-500 rounded-lg py-2 px-3 me-3">Edit</a>
+                            <a href="{{route('blogs.edit',['blog'=>$blog->id])}}" class="text-white bg-blue-500 rounded-lg py-2 px-3 me-3">Edit</a>
                             <button type="submit" class="text-white bg-red-500 rounded-lg py-2 px-3 me-3">Delete</button>
                         </form>
                     @endif
