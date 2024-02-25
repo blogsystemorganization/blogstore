@@ -50,7 +50,7 @@
 <section class="container mx-auto mt-10 md:px-0 px-4">
 
     <div class="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-10">
-        @foreach ($blogs as $blog)
+        @foreach ($blogs as $key=>$blog)
 
         <div class="bg-slate-300 border border-gray-100 p-4 rounded-md hover:bg-slate-100 hover:border hover:border-2 hover:border-slate-600 transition-all duration-300">
 
@@ -78,8 +78,13 @@
                 <h1 class="font-bold uppercase text-lg mb-3">{{$blog->title}}</h1>
                 <p class="text-gray-500">
                     <a class="hover:opacity-90 font-bold font-medium" href="blogs/{{$blog->id}}">
+<<<<<<< HEAD
                         {{Str::substr($blog->body,0,100)}}
                         {{-- {{$blog->body}} --}}
+=======
+                        {{-- {{Str::limit($blog->body,20)}} --}}
+                        {{substr($blog->body,0,50)}}
+>>>>>>> master
                     </a>
                 </p>
 

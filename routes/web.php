@@ -37,7 +37,9 @@ Route::middleware('auth')->group(function () {
     // Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::resource('/homepages', HomepageController::class);
-    Route::get("/blogs/{id}",[BlogController::class,"detail"])->name("blog.detail");
+    Route::resource('/blogs', BlogController::class);
+    // Route::get("/blogs/{id}",[BlogController::class,"detail"])->name("blog.detail");
+    // Route::delete("/blogs/{id}",[BlogController::class,"destory"])->name("blog.destory");
     Route::resource('/profile', ProfileController::class);
 });
 
