@@ -27,10 +27,14 @@
                     </div>
 
                 </div>
-                <div>
+                <div class="flex items-center">
                     @if(Auth::user()->id === $blog->user_id)
-                        <a class="text-white bg-blue-500 rounded-lg py-2 px-3 me-3" href=""><i class="fas fa-edit"></i></a>
-                        <a class="text-white bg-red-500 rounded-lg py-2 px-3" href=""><i class="fas fa-trash-alt"></i></a>
+                        <form action="{{route('blogs.destroy',['blog' => $blog->id])}}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <a href="{{route('blogs.edit',['blog'=>$blog->id])}}" class="text-white bg-blue-500 rounded-lg py-2 px-3 me-3">Edit</a>
+                            <button type="submit" class="text-white bg-red-500 rounded-lg py-2 px-3 me-3">Delete</button>
+                        </form>
                     @endif
                 </div>
             </div>
