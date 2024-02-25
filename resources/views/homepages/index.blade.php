@@ -78,8 +78,8 @@
                 <h1 class="font-bold uppercase text-lg mb-3">{{$blog->title}}</h1>
                 <p class="text-gray-500">
                     <a class="hover:opacity-90 font-bold font-medium" href="blogs/{{$blog->id}}">
-                        {{-- {{Str::limit($blog->body,20)}} --}}
-                        {{$blog->body}}
+                        {{Str::substr($blog->body,0,100)}}
+                        {{-- {{$blog->body}} --}}
                     </a>
                 </p>
 
