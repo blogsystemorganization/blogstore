@@ -21,7 +21,7 @@
                     <li><a href="#" class="font-bold hover:text-red-600 transition-color duration-300">Blog</a></li>
                     <li><a href="#" class="font-bold hover:text-red-600 transition-color duration-300">About</a></li>
 
-                    <li class="w-10 h-10 bg-gray-200 rounded-full flex justify-center items-center relative p-3"  onclick="document.getElementById('dropdown-noti').classList.toggle('hidden')">
+                    <li class="w-10 h-10  rounded-full flex justify-center items-center relative p-3"  onclick="document.getElementById('dropdown-noti').classList.toggle('hidden')">
                    
                         <i class="fas fa-bell"></i> 
                         <span class="w-5 h-5 bg-red-800 text-gray-200 flex justify-center items-center  rounded-full absolute -top-2 right-0">
