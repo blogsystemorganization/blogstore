@@ -81,7 +81,9 @@
 
         <div class="grid grid-cols-3 gap-10">
             @foreach ($blogs as $blog)
+         
             <div class="border border-gray-100 p-4 rounded-md">
+                <a href="blogs/{{$blog->id}}">
 
                 <div class="mb-5">
                     <div class="w-full flex justify-start items-center space-x-3">
@@ -106,16 +108,19 @@
                 <div class="mt-3 h-[200px]">
                     <h1 class="font-bold uppercase text-lg mb-3">{{$blog->title}}</h1>
                     <p class="text-gray-700">
-                        <a class="hover:text-gray-600 font-bold font-medium" href="blogs/{{$blog->id}}">
-                            {{Str::substr($blog->body,50)}}
+                        <a class="hover:text-gray-600 font-bold font-medium" href="">
+                            {{Str::substr($blog->body,0,50)}}
                         </a>
                     </p>
 
 
                 </div>
 
-            </div>
 
+            </a>
+
+            </div>
+     
             @endforeach
         </div>
 
