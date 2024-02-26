@@ -7,9 +7,38 @@ use App\Models\Category;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Auth;
+
 
 class BlogController extends Controller
 {
+    public function create(){
+        $categories = Category::all();
+        return view("profile.addNewBlog",['categories'=>$categories]);
+    }
+
+    public function store(Request $request){
+        $blog = new Blog();
+
+        $request->validate([
+            'title' => 'required',
+            'category_id' => 'required',
+            'intro' => 'required',
+            'body' => 'required'
+        ]);
+
+        $blog->title = $request->title;
+        $blog->slug = $request->title;
+        $blog->category_id = $request->category_id;
+        $blog->intro = $request->intro;
+        $blog->body = $request->body;
+        $blog->user_id = Auth::user()->id;
+        // $blog->publish = $request->publish;
+        $blog->save();
+
+        return redirect("profile");
+    }
+
     public function show($id){
         $blog = Blog::where("id",$id)->first();
         return view("blog.detail",['blog'=>$blog]);
