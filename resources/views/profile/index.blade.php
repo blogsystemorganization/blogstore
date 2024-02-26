@@ -107,7 +107,7 @@
                     <h1 class="font-bold uppercase text-lg mb-3">{{$blog->title}}</h1>
                     <p class="text-gray-700">
                         <a class="hover:text-gray-600 font-bold font-medium" href="blogs/{{$blog->id}}">
-                            {{Str::substr($blog->body,50)}}
+                            {{Str::substr($blog->body,0,50)}}
                         </a>
                     </p>
 
