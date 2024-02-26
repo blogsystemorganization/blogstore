@@ -47,3 +47,8 @@ require __DIR__ . '/auth.php';
 
 
 // git merge origin master 
+
+// git branch -d master 
+// git fetch 
+// git checkout master 
+// git pull origin master
