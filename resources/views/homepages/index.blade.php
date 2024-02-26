@@ -53,6 +53,7 @@
         @foreach ($blogs as $key=>$blog)
 
         <div class="bg-slate-300 border border-gray-100 p-4 rounded-md hover:bg-slate-100 hover:border hover:border-2 hover:border-slate-600 transition-all duration-300">
+            <a href="blogs/{{$blog->id}}">
 
             <div class="mb-5">
                 <div class="w-full flex justify-start items-center space-x-3">
@@ -86,6 +87,7 @@
 
             </div>
 
+            </a>
         </div>
 
         @endforeach
