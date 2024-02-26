@@ -14,7 +14,7 @@ class BlogController extends Controller
 {
     public function create(){
         $categories = Category::all();
-        return view("profile.addNewBlog",['categories'=>$categories]);
+        return view("blog.create",['categories'=>$categories]);
     }
 
     public function store(Request $request){
