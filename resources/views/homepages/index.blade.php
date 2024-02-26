@@ -68,8 +68,6 @@
                 </div>
             </div>
 
-
-
             <div class="w-full h-[300px] bg-gray-200 flex justify-center items-center">
                 <img src="https://www.shutterstock.com/image-photo/blogging-blog-word-coder-coding-260nw-520314613.jpg" class="object-cover w-full h-[300px] rounded" alt="logo">
             </div>
