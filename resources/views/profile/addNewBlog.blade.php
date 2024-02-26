@@ -7,7 +7,7 @@
     @section('content')
 
         <h3 class="text-[25px] text-gray-600 container mx-auto px-10 font-bold my-8 underline underline-offset-8 tracking-wide">Add New Blog</h3>
-        <form action="{{route('profile.store')}}" method="POST"
+        <form action="{{route('blogs.store')}}" method="POST"
             class="container rounded-lg mx-auto p-10">
             @csrf
 

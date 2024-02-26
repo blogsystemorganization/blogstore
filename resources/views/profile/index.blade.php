@@ -38,7 +38,7 @@
 
                 <div class="mt-2">
                      <div class="flex justify-center items-center space-x-3 ">
-                       <a href="{{route("profile.create")}}">
+                       <a href="{{route("blogs.create")}}">
                             <button class="bg-indigo-500 text-gray-200 flex justify-end items-center rounded-md px-5 py-2 space-x-2">
                                 <i class="fas fa-plus"></i>
                             <span>Create post</span>

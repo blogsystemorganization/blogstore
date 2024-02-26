@@ -31,26 +31,6 @@ class ProfileController extends Controller
         return view('profile.edit');
     }
 
-    public function create(){
-        $categories = Category::all();
-        return view("profile.addNewBlog",['categories'=>$categories]);
-    }
-
-    public function store(Request $request){
-        $blog = new Blog();
-
-        $blog->title = $request->title;
-        $blog->slug = $request->title;
-        $blog->category_id = $request->category_id;
-        $blog->intro = $request->intro;
-        $blog->body = $request->body;
-        $blog->user_id = Auth::user()->id;
-        // $blog->publish = $request->publish;
-        $blog->save();
-
-        return redirect("profile");
-    }
-
 
     // breeze default 
 

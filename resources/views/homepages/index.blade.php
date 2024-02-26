@@ -79,7 +79,7 @@
                 <p class="text-gray-500">
                     <a class="hover:opacity-90 font-bold font-medium" href="blogs/{{$blog->id}}">
                         {{-- {{Str::limit($blog->body,20)}} --}}
-                        {{substr($blog->body,0,50)}}
+                        {{Str::substr($blog->body,0,50)}}
                     </a>
                 </p>
 
