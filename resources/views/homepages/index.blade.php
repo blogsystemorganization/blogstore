@@ -93,7 +93,7 @@
 
         @endforeach
     </div>
-    {{$blogs->links()}};
+
 </section>
 
 @endsection
