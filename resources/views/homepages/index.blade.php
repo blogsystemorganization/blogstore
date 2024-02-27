@@ -92,7 +92,19 @@
         </div>
 
         @endforeach
+
+
+
     </div>
+
+
+    <div class="mt-10">
+        {{$blogs->links()}}
+
+    </div>
+
+
+
 
 </section>
 
