@@ -12,8 +12,8 @@ class HomepageController extends Controller
     public function index()
     {
 
-        $blogs = Blog::with('category', 'user')->orderBy('title')->filter(request(['search', 'username', 'category']))
-            ->paginate(3)
+        $blogs = Blog::with('category', 'user')->orderBy('created_at','desc')->filter(request(['search', 'username', 'category']))
+            ->paginate(6)
             ->withQuerystring();
 
         // // $blogs = Blog::with('category', 'user')->orderBy('title')->paginate(3); // fix n+1 problem before looping
