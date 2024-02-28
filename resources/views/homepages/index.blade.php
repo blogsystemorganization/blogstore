@@ -53,7 +53,7 @@
         @foreach ($blogs as $key=>$blog)
 
         <div class="bg-slate-300 border border-gray-100 p-4 rounded-md hover:bg-slate-100 hover:border hover:border-2 hover:border-slate-600 transition-all duration-300">
-
+            
             <div class="mb-5">
                 <div class="w-full flex justify-start items-center space-x-3">
                     <div class="w-10 h-10 rounded-full bg-gray-200 hover:border hover:border-2 hover:border-red-500 transition-all duration-300 ">

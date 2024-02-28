@@ -9,9 +9,13 @@
         <section class="container mx-auto px-32">
             <div class="w-full">
                 <!--Cover-->
-               <div class="w-full h-96 rounded-b-lg bg-gray-300 ">
+               <div class="w-full h-96 rounded-b-lg bg-gray-300">
+                    
                     <form action="" method="" class="w-full h-full flex justify-center items-center">
-                        <label for="cover" class=" text-lg">Upload cover</label>
+                        
+                        <label for="cover" class="w-full h-full text-lg">
+                            <img src="{{asset('assets/img/cover5.jpg')}}" alt="img3" class="w-full h-full object-cover" />
+                        </label>
                         <input type="file" id="cover" name="cover" hidden>
                     </form>
                </div>
@@ -63,7 +67,7 @@
 
 
         {{-- start post list  --}}
-        <section class="container mx-auto px-32">
+        <section class="container mx-auto px-6">
             <div class="mb-10">
                 <div class="flex justify-start items-center ml-20 mt-3 space-x-3">
                     <div class="border-b-2 border-b-indigo-500 text-indigo-700 pb-3"><a href="">Posts</a></div>
@@ -78,14 +82,14 @@
             {{-- post --}}
             <section class="container mx-auto mt-10">
 
-                <div class="grid grid-cols-3 gap-10">
+                <div class="w-full grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-10">
                     @foreach ($blogs as $blog)
-                    <div class="border border-gray-100 p-4 rounded-md">
+                    <div class="bg-slate-200 border border-gray-200 p-4 rounded-md shadow-lg">
             
                         <div class="mb-5">
                             <div class="w-full flex justify-start items-center space-x-3">
-                                <div class="w-10 h-10 rounded-full bg-gray-200">
-                                    <img src="" alt="">
+                                <div class="w-10 h-10 border border-2 border-red-400 rounded-full bg-gray-200">
+                                    <img src="" alt="" />
                                 </div>
                                 <div class="flex flex-col justify-center items-start">
                                     <span class="text-sm font-medium">{{$blog->user->name}}</span>
@@ -106,7 +110,7 @@
                             <h1 class="font-bold uppercase text-lg mb-3">{{$blog->title}}</h1>
                             <p class="text-gray-700">
                                 <a class="hover:text-gray-600 font-bold font-medium" href="blogs/{{$blog->id}}">
-                                    {{Str::limit($blog->body,50)}}
+                                    {{Str::substr($blog->body,0,100)}}
                                 </a>
                             </p>
             

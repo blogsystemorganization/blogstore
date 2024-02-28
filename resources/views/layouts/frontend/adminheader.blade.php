@@ -12,6 +12,8 @@
     
     <script src="https://cdn.tailwindcss.com"></script>
 
+    @yield('css')
+
 </head>
 <body class="pb-32">
 

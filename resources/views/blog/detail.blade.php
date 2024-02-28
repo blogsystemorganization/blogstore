@@ -32,24 +32,44 @@
                         <form action="{{route('blogs.destroy',['blog' => $blog->id])}}" method="POST">
                             @csrf
                             @method('DELETE')
-                            <a href="{{route('blogs.edit',['blog'=>$blog->id])}}" class="text-white bg-blue-500 rounded-lg py-2 px-3 me-3">Edit</a>
-                            <button type="submit" class="text-white bg-red-500 rounded-lg py-2 px-3 me-3">Delete</button>
+                            <button type="button" class="text-white bg-blue-500 rounded-md cursor-pointer py-2 px-4 me-3 hover:bg-blue-400 hover:text-slate-700 hover:font-semibold transition:all duration-200"><a href="{{route('blogs.edit',['blog'=>$blog->id])}}">Edit</a></button>
+                            <button type="submit" class="text-white bg-red-500 rounded-md cursor-pointer py-2 px-4 me-3 hover:bg-red-400 hover:text-slate-800 hover:font-semibold transition:all duration-200">Delete</button>
                         </form>
                     @endif
                 </div>
             </div>
-            <div>
-                <h1 class="text-xl font-semibold text-gray-700">{{$blog->title}}</h1>
-                <p class="text-sm text-gray-600 text-justify mt-5">{{$blog->body}}</p>
 
-                <div class="flex justify-end mt-10 mb-[50px]">
-                    <a href="{{route("homepages.index")}}" class=""> <i class="fas fa-arrow-left"></i> Back</a>
+            <div>
+                <div class="w-full h-[350px] overflow-y-scroll details-scroll px-2">
+                    <h1 class="text-xl font-semibold text-gray-700">{{$blog->title}}</h1>
+                    <p class="text-md text-gray-600 text-justify indent-10 leading-6 mt-5">{{$blog->body}}</p>
                 </div>
+
+               <div class="flex justify-end mt-10 mb-[50px]">
+                    <div class="w-12 h-12 bg-slate-400 rounded-full">
+                        <a href="{{route("homepages.index")}}" class="w-full h-full text-center text-lg grid items-center"> <i class="fas fa-arrow-left"></i> </a>
+                    </div>
+               </div>
             </div>
+
         </div>
     </div>
 
     @endsection
 
-    </body>
-</html>
+  @section('css')
+    <style type="text/css">
+        ::-webkit-scrollbar{
+            width:4px;
+        }
+
+        ::-webkit-scrollbar-track{
+            background-color:transparent;
+        }
+
+        ::-webkit-scrollbar-thumb{
+            width:3px;
+            background-color:#94a3b8;
+        }
+    </style>
+  @endsection
