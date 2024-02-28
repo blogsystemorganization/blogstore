@@ -1,6 +1,6 @@
 <section class="sticky top-0 z-10">
     <!-- start nav  -->
-    <nav class="container h-16 bg-[#f4f4f4] mx-auto lg:px-10 md:px-6  md:border-b-none shadow-lg border-b-2 border-gray-300 shadow-gray-300 ">
+    <nav class="container h-16 bg-[#f4f4f4] mx-auto lg:px-10 md:px-3  md:border-b-none shadow-lg border-b-2 border-gray-300 shadow-gray-300 ">
         <div class="h-full flex justify-between items-center">
             <div class="flex items-center space-x-10">
 

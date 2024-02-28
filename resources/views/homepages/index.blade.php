@@ -76,14 +76,12 @@
                     <img src="https://www.shutterstock.com/image-photo/blogging-blog-word-coder-coding-260nw-520314613.jpg" class="object-cover w-full h-[300px] rounded" alt="logo">
                 </div>
 
-                <div class="mt-3 h-[200px]">
-                    <h1 class="font-bold uppercase text-lg mb-3">{{$blog->title}}</h1>
-                    <p class="text-gray-500">
-                        <a class="hover:opacity-90 font-bold font-medium" href="blogs/{{$blog->id}}">
-                            {{-- {{Str::limit($blog->body,20)}} --}}
-                            {{Str::substr($blog->body,0,50)}}
-                        </a>
-                    </p>
+            <div class="mt-3 h-[200px]">
+                <h1 class="font-bold uppercase text-lg mb-3">{{$blog->title}}</h1>
+                <p class="text-gray-500">                 
+                        {{-- {{Str::limit($blog->body,20)}} --}}
+                        {{Str::substr($blog->body,0,50)}}
+                </p>
 
 
                 </div>
