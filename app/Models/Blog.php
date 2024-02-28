@@ -10,7 +10,7 @@ class Blog extends Model
 {
     use HasFactory;
 
-    protected $filiable = ['title', 'slug','category_id', 'user_id', 'intro', 'body'];
+    protected $filiable = ['title', 'slug', 'category_id', 'user_id', 'intro', 'body'];
 
     public function category()
     {
@@ -20,6 +20,11 @@ class Blog extends Model
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
     }
 
     public function scopeFilter($query, $filters)
