@@ -12,12 +12,14 @@ use Illuminate\Support\Facades\Auth;
 
 class BlogController extends Controller
 {
-    public function create(){
+    public function create()
+    {
         $categories = Category::all();
-        return view("blog.create",['categories'=>$categories]);
+        return view("blog.create", ['categories' => $categories]);
     }
 
-    public function store(Request $request){
+    public function store(Request $request)
+    {
         $blog = new Blog();
 
         $request->validate([
@@ -39,20 +41,28 @@ class BlogController extends Controller
         return redirect("profile");
     }
 
-    public function show($id){
-        $blog = Blog::where("id",$id)->first();
-        return view("blog.detail",['blog'=>$blog]);
+    public function show(Blog $blog)
+    {
+        // $blog = Blog::where("id", $id)->first();
+        $comments = $blog->comments()->latest()->paginate(5);
+
+        return view("blog.detail", [
+            'blog' => $blog,
+            'comments' => $comments
+        ]);
     }
 
-    public function edit($id){
-        $blog = Blog::where("id",$id)->first();
+    public function edit($id)
+    {
+        $blog = Blog::where("id", $id)->first();
         $categories = Category::all();
-        return view("blog.edit",['blog'=>$blog , 'categories' => $categories]);
+        return view("blog.edit", ['blog' => $blog, 'categories' => $categories]);
     }
 
-    public function update(Request $request ,Blog $blog){
-        try{
-            
+    public function update(Request $request, Blog $blog)
+    {
+        try {
+
             $request->validate([
                 'title' => 'required',
                 'category_id' => 'required',
@@ -68,16 +78,15 @@ class BlogController extends Controller
             $blog->save();
 
             return redirect("profile");
-        }catch(Exception $e){
+        } catch (Exception $e) {
             dd($e->getMessage());
         }
     }
 
-    public function destroy(Blog $blog){
+    public function destroy(Blog $blog)
+    {
         $blog->delete();
 
         return redirect("profile");
     }
-
-   
 }

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProfilesController;
@@ -28,7 +29,7 @@ Route::get('/', function () {
 
 Route::middleware('auth')->group(function () {
 
-    Route::get('/dashboard',[DashboardsController::class,'index'])->name('dashboards.index');
+    Route::get('/dashboard', [DashboardsController::class, 'index'])->name('dashboards.index');
 
     // :: breeze profile controller 
     // Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -38,9 +39,13 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('/homepages', HomepageController::class);
     Route::resource('/blogs', BlogController::class);
+    // Route::resource('/blogs/{blog:id}', BlogController::class);
+
     // Route::get("/blogs/{id}",[BlogController::class,"detail"])->name("blog.detail");
     // Route::delete("/blogs/{id}",[BlogController::class,"destory"])->name("blog.destory");
     Route::resource('/profile', ProfileController::class);
+
+    Route::post('/{blog:id}/comment/store', [CommentController::class, 'store']);
 });
 
 require __DIR__ . '/auth.php';
