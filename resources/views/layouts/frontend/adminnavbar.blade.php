@@ -33,7 +33,9 @@
                     <li class="relative cursor-pointer" onclick="document.getElementById('dropdown').classList.toggle('hidden')">
                         <div class="flex justify-between items-center">
                             <div class="w-[35px] h-[35px] rounded-full">
-                                <img src="{{asset('assets/img/profile.avif')}}" class="w-full h-full object-cover rounded-full" alt="profile" />
+                                {{-- not update yet  --}}
+                                {{-- <img src="{{ Storage::url($profile->last()->image) }}" class="w-full h-full object-cover rounded-full" alt="profile" /> --}}
+                                <img src="{{ asset('assets/img/ai.jpg')}}" class="w-full h-full object-cover rounded-full" alt="profile" />
                             </div>
                         </div> 
                         

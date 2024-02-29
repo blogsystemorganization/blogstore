@@ -1,4 +1,46 @@
-<x-app-layout>
+@extends('layouts/frontend.adminindex')
+
+@section('content')
+  <div>
+    <form action="{{ route('profile.update', Auth::user()->id) }}" method="POST" enctype="multipart/form-data" class="md:flex md:justify-flex">
+        @csrf
+        @method('PUT')
+        <div>
+            <label for="">Cover</label>
+            <input type="file" name="cover">
+        </div>
+
+        <div>
+            <label for="">Profile</label>
+            <input type="file" name="profile">
+        </div>
+
+        <button>Submit</button>
+     </form>
+  </div>
+@endsection
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{{-- <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Profile') }}
@@ -28,6 +70,6 @@
     </div>
 </x-app-layout>
 
-
+ --}}
 
 {{-- <h1>Edit</h1> --}}
