@@ -41,13 +41,13 @@
 
             <!--Cover-->
         <div class="w-full h-96 rounded-b-lg lg:px-3 px-0">
-            <input type="file" id="cover" name="cover"  value="assets/img/cover5.jpg">
+            <input type="file" id="cover" name="cover"  value="assets/img/cover5.jpg" hidden>
         </div>
 
             <!--Profile-->
         <div class="flex justify-between items-center lg:-mt-10 -mt-4">
              <div>
-                <input type="file" id="profile" name="profile"  value="assets/img/profile.jpg">
+                <input type="file" id="profile" name="profile"  value="assets/img/profile.jpg" hidden>
             </div>
         </div>
 
