@@ -4,8 +4,8 @@
 @section('content')
 <div class="container mx-auto">
 
-    <div class="grid grid-cols-3 px-10 my-10">
-        <div class=" max-h-[300px] bg-red-500">
+    <div class="w-full grid grid-cols-3 px-10 my-10">
+        <div class="w-full max-h-[300px] bg-red-500">
             <img src="https://www.shutterstock.com/image-photo/blogging-blog-word-coder-coding-260nw-520314613.jpg" class="object-cover w-full h-[300px]" alt="logo">
         </div>
         <div class="col-span-2 h-40 px-5">
