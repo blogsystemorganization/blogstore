@@ -76,7 +76,8 @@
         </form>
 
     </div>
-    <!-- comment box -->
+
+    <!-- start comment box -->
     <div class="p-6 pt-8 mt-8 max-w-xl mx-auto bg-white rounded-md shadow-md">
         @foreach($comments as $comment)
         <div>
@@ -86,6 +87,7 @@
             </h2>
 
         </div>
+
         <div>
             <p>{{$comment->body}}</p>
         </div>
@@ -95,6 +97,7 @@
             {{$comments->links()}}
         </div>
     </div>
+    <!-- end comment box -->
     @endsection
 
 
