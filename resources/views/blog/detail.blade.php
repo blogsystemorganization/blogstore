@@ -111,7 +111,7 @@
 
     <div id="backarrows" class="fixed bottom-5 right-5 lg:block hidden backarrows">
         <div class="w-12 h-12 bg-slate-300 rounded-full">
-            <a href="{{route("homepages.index")}}" class="w-full h-full text-center text-lg text-rose-800 grid items-center"> <i class="fas fa-arrow-left"></i> </a>
+            <a href="{{route("blogs.index")}}" class="w-full h-full text-center text-lg text-rose-800 grid items-center"> <i class="fas fa-arrow-left"></i> </a>
         </div>
     </div>
 

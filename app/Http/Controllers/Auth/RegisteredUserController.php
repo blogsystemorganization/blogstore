@@ -102,7 +102,7 @@ class RegisteredUserController extends Controller
 
 
         // return redirect(RouteServiceProvider::HOME);
-        return redirect('homepages');
+        return redirect('blogs');
     }
 
 }
