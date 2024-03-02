@@ -76,13 +76,7 @@ class ProfileController extends Controller
         $user_id = Auth::user()->id;
 
         $profile = User::findOrFail($user_id);
-
-
-
-
-
         try {
-
 
             // Create and store cover photo
             if (file_exists($request['cover'])) {
@@ -114,14 +108,6 @@ class ProfileController extends Controller
 
 
             }
-
-
-
-
-
-
-
-
 
             // Create and store profile photo
             if ($request->hasFile('profile')) {
