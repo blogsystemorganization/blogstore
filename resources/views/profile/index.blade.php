@@ -32,7 +32,7 @@
                         <form action="" method="" class="w-full h-full flex justify-start items-center md:ml-20 ml-2 space-x-3">
                             <div>
                                 <label for="profile" class="text-lg">
-                                    <div class="md:w-32 md:h-32 w-16 h-16 rounded-full">
+                                    <div class="md:w-32 md:h-32 w-16 h-16 rounded-full overflow-hidden">
                                         <img src="{{ Storage::url($profile->last()->image) }}" alt="Cover Image" class="w-full h-full object-cover" />
 
                                     </div>
