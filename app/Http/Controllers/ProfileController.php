@@ -51,27 +51,16 @@ class ProfileController extends Controller
 
     public function store(Request $request)
     {
-
-
         return view('profile.index');
-
 
     }
 
-
-
-
-
     public function update(Request $request)
     {
-
-
         $this->validate($request, [
             'cover' => 'image',
             'profile' => 'image'
         ]);
-
-
 
         $user_id = Auth::user()->id;
 
@@ -105,8 +94,6 @@ class ProfileController extends Controller
                 $coverimage->user_id = $user_id;
                 $coverimage->save();
 
-
-
             }
 
             // Create and store profile photo
@@ -137,9 +124,6 @@ class ProfileController extends Controller
         } catch (\Exception $e) {
             dd($e->getMessage());
         }
-
-
-
 
         return redirect()->route('profile.index');
 
