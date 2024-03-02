@@ -4,17 +4,23 @@
 {{-- start profile  --}}
 
 
-        <section class="mx-auto lg:px-6 px-0">
+        <section class="container mx-auto lg:px-6 px-0">
             <div class="w-full flex justify-center">
                 <!--Cover-->
                <div class="w-full h-96 rounded-b-lg lg:px-3 px-0">
                     
-                    <form action="" method="" class="w-full h-full flex justify-center items-center">
-                        
-                        <label for="cover" class="w-full h-full text-lg">
-                            <img src="{{asset('assets/img/cover5.jpg')}}" alt="img3" class="w-full h-full object-cover" />
-                        </label>
+                    <form action="{{route('profile.store')}}" method="POST" class="w-full h-full flex justify-center items-center">
+                        @csrf
+                   <!--Cover-->
+                    <div class="w-full h-96 rounded-b-lg lg:px-3 px-0">
+                            <label for="cover" class="w-full h-full text-lg">
+                                <img src="{{ Storage::url($cover->last()->image) }}" alt="Cover Image" class="w-full h-full object-cover" />
+                            </label>
+                      
                         <input type="file" id="cover" name="cover" hidden>
+                    </div>
+
+
                     </form>
 
                </div>
@@ -25,12 +31,13 @@
                     <div>
                         <form action="" method="" class="w-full h-full flex justify-start items-center md:ml-20 ml-2 space-x-3">
                             <div>
-                                <label for="cover" class="text-lg">
+                                <label for="profile" class="text-lg">
                                     <div class="md:w-32 md:h-32 w-16 h-16 rounded-full">
-                                        <img src="{{asset('assets/img/cover.jpg')}}" class="w-full h-full rounded-full" alt="" />
+                                        <img src="{{ Storage::url($profile->last()->image) }}" alt="Cover Image" class="w-full h-full object-cover" />
+
                                     </div>
                                 </label>
-                                <input type="file" id="cover" name="cover" hidden>
+                                <input type="file" id="profile" name="profile" hidden>
                             </div>
 
                             <div class="mt-5">
@@ -64,7 +71,7 @@
 
                 </div>
                 <hr class="mt-10">
-            </section>
+        </section>
 
             {{-- start post list  --}}
             <section class="container mx-auto px-6">
