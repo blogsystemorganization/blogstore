@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Blog;
 use App\Models\Category;
+use App\Models\Image;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -15,17 +16,21 @@ class BlogController extends Controller
     public function index()
     {
 
-        $blogs = Blog::with('category', 'user')->orderBy('created_at','desc')->filter(request(['search', 'username', 'category']))
+        $blogs = Blog::with('category', 'user')->orderBy('created_at', 'desc')->filter(request(['search', 'username', 'category']))
             ->paginate(6)
             ->withQuerystring();
 
         // // $blogs = Blog::with('category', 'user')->orderBy('title')->paginate(3); // fix n+1 problem before looping
         // $title = "My Blog Title";
 
+        $user_id = Auth::user()->id;
+        $profile = Image::where('imageable_id', $user_id)->where('imageable_type', 'App\Model\User\Profile')->get();
+
 
         return view('homepages/index', [
             "blogs" => $blogs,
-            "categories" => Category::all()
+            "categories" => Category::all(),
+            'profile' => $profile
         ]);
     }
     public function create()
