@@ -67,7 +67,7 @@ class RegisteredUserController extends Controller
                 $cover = $request['cover'];
                 $coverpath = $cover->store('public/profile');
             } else {
-                $defaultcoverfile = storage_path('app/public/' . $defaultcover);
+                $defaultcoverfile = storage_path('app/' . $defaultcover);
                 $coverpath = Storage::putFile('public/profile', $defaultcoverfile);
 
             }
@@ -86,7 +86,7 @@ class RegisteredUserController extends Controller
                 $profile = $request->file('profile');
                 $profilepath = $profile->store('public/profile');
             } else {
-                $defaultprofilefile = storage_path('app/public/' . $defaultprofile);
+                $defaultprofilefile = storage_path('app/' . $defaultprofile);
                 $profilepath = Storage::putFile('public/profile', $defaultprofilefile);
             }
 
