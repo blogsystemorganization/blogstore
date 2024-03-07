@@ -67,9 +67,13 @@ class BlogController extends Controller
         // $blog = Blog::where("id", $id)->first();
         $comments = $blog->comments()->latest()->paginate(5);
 
+        $user_id = Auth::user()->id;
+        $profile = Image::where('imageable_id', $user_id)->where('imageable_type', 'App\Model\User\Profile')->get();
+
         return view("blog.detail", [
             'blog' => $blog,
-            'comments' => $comments
+            'comments' => $comments,
+            'profile' => $profile
         ]);
     }
 
