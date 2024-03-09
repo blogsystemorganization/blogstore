@@ -14,7 +14,12 @@
                    <!--Cover-->
                     <div class="w-full h-96 rounded-b-lg lg:px-3 px-0">
                             <label for="cover" class="w-full h-full text-lg">
-                                <img src="{{ Storage::url($cover->last()->image) }}" alt="Cover Image" class="w-full h-full object-cover" />
+                                @if($cover->last())
+                                    <img src="{{ Storage::url($cover->last()->image) }}" alt="Cover Image" class="w-full h-full object-cover" />
+                                @else
+                                    <img src="{{ asset('assets/img/ai.jpg')}}" class="w-full h-full object-cover rounded-full" alt="profile" />
+
+                                @endif
                             </label>
                       
                         <input type="file" id="cover" name="cover" hidden>
@@ -33,7 +38,11 @@
                             <div>
                                 <label for="profile" class="text-lg">
                                     <div class="md:w-32 md:h-32 w-16 h-16 rounded-full overflow-hidden">
+                                        @if($profile->last())
                                         <img src="{{ Storage::url($profile->last()->image) }}" alt="Cover Image" class="w-full h-full object-cover" />
+                                        @else
+                                        <img src="{{ asset('assets/img/ai.jpg')}}" class="w-full h-full object-cover rounded-full" alt="profile" />
+                                        @endif
 
                                     </div>
                                 </label>

@@ -15,40 +15,29 @@ class BlogController extends Controller
 {
     public function index()
     {
-
-        $blogs = Blog::with('category', 'user')->orderBy('created_at', 'desc')->filter(request(['search', 'username', 'category']))
+        $blogs = Blog::with('category', 'user','image')->orderBy('created_at', 'desc')->filter(request(['search', 'username', 'category']))
             ->paginate(6)
             ->withQuerystring();
-
-        // // $blogs = Blog::with('category', 'user')->orderBy('title')->paginate(3); // fix n+1 problem before looping
-        // $title = "My Blog Title";
-
-        $user_id = Auth::user()->id;
-        $profile = Image::where('imageable_id', $user_id)->where('imageable_type', 'App\Model\User\Profile')->get();
-
-
-        return view('homepages/index', [
-            "blogs" => $blogs,
-            "categories" => Category::all(),
-            'profile' => $profile
-        ]);
+        
+        return view('blog.index', ["blogs" => $blogs]);
     }
     public function create()
     {
-        $categories = Category::all();
-        return view("blog.create", ['categories' => $categories]);
+        return view("blog.create", ['categories' => Category::all()]);
     }
 
     public function store(Request $request)
     {
-        $blog = new Blog();
-
         $request->validate([
             'title' => 'required',
             'category_id' => 'required',
             'intro' => 'required',
+            'photo' => 'required',
             'body' => 'required'
         ]);
+        
+
+        $blog = new Blog();
 
         $blog->title = $request->title;
         $blog->slug = $request->title;
@@ -59,21 +48,25 @@ class BlogController extends Controller
         // $blog->publish = $request->publish;
         $blog->save();
 
+        $blogImage = $request['photo'];
+        $blogpath = $blogImage->store('public/blogs');
+
+        $user_id = Auth::user()->id;
+        $blogimage = new Image();
+        $blogimage->image = $blogpath;
+        $blogimage->imageable_id = $blog->id;
+        $blogimage->imageable_type = Blog::class;
+        $blogimage->user_id = $user_id;
+        $blogimage->save();
         return redirect("profile");
     }
 
     public function show(Blog $blog)
     {
-        // $blog = Blog::where("id", $id)->first();
         $comments = $blog->comments()->latest()->paginate(5);
-
-        $user_id = Auth::user()->id;
-        $profile = Image::where('imageable_id', $user_id)->where('imageable_type', 'App\Model\User\Profile')->get();
-
         return view("blog.detail", [
             'blog' => $blog,
-            'comments' => $comments,
-            'profile' => $profile
+            'comments' => $comments
         ]);
     }
 

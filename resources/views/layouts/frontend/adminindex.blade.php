@@ -1,5 +1,5 @@
 @include('layouts/frontend.adminheader')
-@include('layouts/frontend.adminnavbar')
+<x-navbar></x-navbar>
 
 
 @yield('content')

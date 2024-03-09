@@ -7,6 +7,7 @@ namespace Database\Seeders;
 use App\Models\Blog;
 use App\Models\Category;
 use App\Models\Comment;
+use App\Models\Image;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 

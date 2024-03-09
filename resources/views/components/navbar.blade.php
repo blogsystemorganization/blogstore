@@ -34,8 +34,11 @@
                         <div class="flex justify-between items-center">
                             <div class="w-[35px] h-[35px] rounded-full">
                                 {{-- not update yet  --}}
-                                <img src="{{ Storage::url($profile->last()->image) }}" class="w-full h-full object-cover rounded-full" alt="profile" />
-                                {{-- <img src="{{ asset('assets/img/ai.jpg')}}" class="w-full h-full object-cover rounded-full" alt="profile" /> --}}
+                                @if($profile->last())
+                                    <img src="{{ Storage::url($profile->last()->image) }}" class="w-full h-full object-cover rounded-full" alt="profile" />
+                                @else
+                                    <img src="{{ asset('assets/img/ai.jpg')}}" class="w-full h-full object-cover rounded-full" alt="profile" />
+                                @endif
                             </div>
                         </div> 
                         
