@@ -15,7 +15,7 @@ class BlogController extends Controller
 {
     public function index()
     {
-        $blogs = Blog::with('category', 'user','image')->orderBy('created_at', 'desc')->filter(request(['search', 'username', 'category']))
+        $blogs = Blog::with('category', 'user','image','user.profile')->orderBy('created_at', 'desc')->filter(request(['search', 'username', 'category']))
             ->paginate(6)
             ->withQuerystring();
         return view('blog.index', ["blogs" => $blogs]);

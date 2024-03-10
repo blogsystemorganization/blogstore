@@ -20,9 +20,9 @@
 
                 <div class="mb-5">
                     <div class="w-full flex justify-start items-center space-x-3">
-                        <div class="w-10 h-10 rounded-full bg-gray-200 hover:border hover:border-2 hover:border-red-500 transition-all duration-300 ">
-                            @if($blog->profile)
-                                <img src="{{ Storage::url($blog->profile) }}" alt="Cover Image" class="w-full h-full object-cover" />
+                        <div class="w-10 h-10 rounded-full overflow-hidden bg-gray-200 hover:border hover:border-2 hover:border-red-500 transition-all duration-300 ">
+                            @if($blog->user->profile)
+                                <img src="{{ Storage::url($blog->user->profile['image']) }}" alt="Cover Image" class="w-full h-full object-cover" />
                             @else
                                 <img src="{{ asset('assets/img/ai.jpg')}}" class="w-full h-full object-cover rounded-full" alt="profile" />
                             @endif
