@@ -11,7 +11,11 @@
                 <div class="w-1/2 h-[300px] bg-slate-100 text-center text-2xl font-bold flex justify-around items-center cursor-pointer rounded-tl-sm rounded-bl-sm">
                     <h1 class="text-3xl text-slate-600 hidden md:block">Cover</h1>
                     <label for="cover" class="w-[200px] h-[200px] overflow-hidden cursor-pointer">
-                        <img src="{{ Storage::url($cover->last()->image) }}" alt="Cover Image" class="w-full h-full rounded-full object-cover" />
+                        @if($cover->last())
+                            <img src="{{ Storage::url($cover->last()->image) }}" alt="Cover Image" class="w-full h-full rounded-full object-cover" />
+                        @else
+                            <img src="{{ asset('assets/img/ai.jpg')}}" class="w-full h-full object-cover rounded-full" alt="profile" />
+                        @endif
                     </label>
                     <input type="file" name="cover" id="cover" hidden />
                 </div>
@@ -19,7 +23,11 @@
                 <div class="w-1/2 h-[300px] bg-zinc-200 text-center text-2xl font-bold flex justify-around items-center cursor-pointer rounded-tr-sm rounded-br-sm">
                     <h1 class="text-3xl text-slate-600 hidden md:block">Profile</h1>
                     <label for="profile" class="w-[200px] h-[200px] overflow-hidden cursor-pointer">   
-                        <img src="{{ Storage::url($profile->last()->image) }}" alt="Cover Image" class="w-full h-full rounded-full object-cover" />
+                        @if($profile->last())
+                            <img src="{{ Storage::url($profile->last()->image) }}" alt="Cover Image" class="w-full h-full rounded-full object-cover" />
+                        @else
+                            <img src="{{ asset('assets/img/ai.jpg')}}" class="w-full h-full object-cover rounded-full" alt="profile" />
+                        @endif
                     </label>
                     <input type="file" name="profile" id="profile" hidden />
                 </div>

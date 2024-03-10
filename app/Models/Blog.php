@@ -27,6 +27,10 @@ class Blog extends Model
         return $this->hasMany(Comment::class);
     }
 
+    public function image(){
+        return $this->morphOne(Image::class,'imageable');
+    }
+
     public function scopeFilter($query, $filters)
     {
         $query->when($filters['search'] ?? null, function ($query) use ($filters) {

@@ -53,54 +53,6 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
-
-        $defaultcover = 'cover5.jpg';
-        $defaultprofile = 'profile.jpg';
-
-
-        $user_id = Auth::user()->id;
-
-        try {
-            // Create and store cover photo
-            if (file_exists($request['cover'])) {
-
-                $cover = $request['cover'];
-                $coverpath = $cover->store('public/profile');
-            } else {
-                $defaultcoverfile = storage_path('app/' . $defaultcover);
-                $coverpath = Storage::putFile('public/profile', $defaultcoverfile);
-
-            }
-
-
-
-            $coverimage = new Image();
-            $coverimage->image = $coverpath;
-            $coverimage->imageable_id = $user_id;
-            $coverimage->imageable_type = 'App\Model\User\Cover';
-            $coverimage->user_id = $user_id;
-            $coverimage->save();
-
-            // Create and store profile photo
-            if ($request->hasFile('profile')) {
-                $profile = $request->file('profile');
-                $profilepath = $profile->store('public/profile');
-            } else {
-                $defaultprofilefile = storage_path('app/' . $defaultprofile);
-                $profilepath = Storage::putFile('public/profile', $defaultprofilefile);
-            }
-
-            $profileimage = new Image();
-            $profileimage->image = $profilepath;
-            $profileimage->imageable_id = $user_id;
-            $profileimage->imageable_type = 'App\Model\User\Profile';
-            $profileimage->user_id = $user_id;
-            $profileimage->save();
-        } catch (\Exception $e) {
-            dd($e->getMessage());
-        }
-
-
         // return redirect(RouteServiceProvider::HOME);
         return redirect('blogs');
     }

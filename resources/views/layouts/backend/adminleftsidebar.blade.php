@@ -18,11 +18,11 @@
 		</li>
 
 		<li>
-			<a href="#">
+			<a href="{{route('categories.index')}}">
 				<span class="icon">
 					<i class="fa-solid fa-calendar"></i>
 				</span>
-				<span class="title">Calendar</span>
+				<span class="title">Categories</span>
 			</a>
 		</li>
 
