@@ -106,8 +106,12 @@
 
                             <div class="mb-5">
                                 <div class="w-full flex justify-start items-center space-x-3">
-                                    <div class="w-10 h-10 border-2 border-red-500 rounded-full bg-gray-200">
-                                        <img src="" alt="" />
+                                    <div class="w-10 h-10 border-2 border-red-500 rounded-full overflow-hidden bg-gray-200">
+                                        @if($profile->last())
+                                            <img src="{{ Storage::url($profile->last()->image) }}" alt="Cover Image" class="w-full h-full object-cover" />
+                                        @else
+                                            <img src="{{ asset('assets/img/ai.jpg')}}" class="w-full h-full object-cover rounded-full" alt="profile" />
+                                        @endif
                                     </div>
                                     <div class="flex flex-col justify-center items-start">
                                         <span class="text-sm font-medium">{{$blog->user->name}}</span>
@@ -121,7 +125,11 @@
 
 
                             <div class="w-full h-[300px] bg-gray-200 flex justify-center items-center">
-                                <img src="https://www.shutterstock.com/image-photo/blogging-blog-word-coder-coding-260nw-520314613.jpg" class="object-cover w-full h-[300px]" alt="logo">
+                                @if($blog->image)
+                                    <img src="{{ Storage::url($blog->image['image']) }}" alt="blogs">
+                                @else 
+                                    <img src="https://www.shutterstock.com/image-photo/blogging-blog-word-coder-coding-260nw-520314613.jpg" class="object-cover w-full h-[300px]" alt="logo">
+                                @endif
                             </div>
 
                             <div class="mt-3 h-[200px]">

@@ -18,7 +18,6 @@ class BlogController extends Controller
         $blogs = Blog::with('category', 'user','image')->orderBy('created_at', 'desc')->filter(request(['search', 'username', 'category']))
             ->paginate(6)
             ->withQuerystring();
-        
         return view('blog.index', ["blogs" => $blogs]);
     }
     public function create()

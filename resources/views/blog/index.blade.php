@@ -21,12 +21,15 @@
                 <div class="mb-5">
                     <div class="w-full flex justify-start items-center space-x-3">
                         <div class="w-10 h-10 rounded-full bg-gray-200 hover:border hover:border-2 hover:border-red-500 transition-all duration-300 ">
-                            <img src="" alt="" />
+                            @if($blog->profile)
+                                <img src="{{ Storage::url($blog->profile) }}" alt="Cover Image" class="w-full h-full object-cover" />
+                            @else
+                                <img src="{{ asset('assets/img/ai.jpg')}}" class="w-full h-full object-cover rounded-full" alt="profile" />
+                            @endif
                         </div>
                         <div class="flex flex-col justify-center items-start">
                             <span class="text-sm font-medium">{{$blog->user->name}}</span>
                             <span class="text-xs text-gray-500">{{$blog->created_at->format("d-M-y")}}</span>
-
                         </div>
 
                     </div>
@@ -36,11 +39,9 @@
                 
                 <div class="w-full h-[300px] bg-gray-200 flex justify-center items-center">
                     @if($blog->image)
-                        {{-- <img src="{{ Storage::url($blog->image['image']) }}" class="object-cover w-full h-[300px] rounded" alt="logo"> --}}
                         <img src="{{ Storage::url($blog->image['image']) }}" alt="blogs">
                     @else 
                         <img src="https://www.shutterstock.com/image-photo/blogging-blog-word-coder-coding-260nw-520314613.jpg" class="object-cover w-full h-[300px]" alt="logo">
-
                     @endif
                 </div>
 
