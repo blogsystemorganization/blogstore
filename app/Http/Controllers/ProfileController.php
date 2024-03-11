@@ -48,6 +48,21 @@ class ProfileController extends Controller
         return view('profile.edit', ["cover" => $cover, "profile" => $profile]);
     }
 
+    public function show($id){
+        $user_id = $id;
+        $user = User::where("id", $user_id)->first();
+        $blogs = Blog::where("user_id", $user_id)->orderBy("created_at", 'desc')->get();
+
+
+
+        $cover = Image::where('imageable_id', $user_id)->where('imageable_type', 'App\Model\User\Cover')->get();
+        $profile = Image::where('imageable_id', $user_id)->where('imageable_type', 'App\Model\User\Profile')->get();
+
+        // dd($cover->last()->image);
+
+        return view('profile.index', ["blogs" => $blogs, "user" => $user, "cover" => $cover, "profile" => $profile]);
+    }
+
 
     public function store(Request $request)
     {
