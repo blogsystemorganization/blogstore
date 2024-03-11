@@ -22,9 +22,9 @@
                     <div class="w-full flex justify-start items-center space-x-3">
                         <div class="w-10 h-10 rounded-full overflow-hidden bg-gray-200 hover:border hover:border-2 hover:border-red-500 transition-all duration-300 ">
                             @if($blog->user->profile)
-                                <img src="{{ Storage::url($blog->user->profile['image']) }}" alt="Cover Image" class="w-full h-full object-cover" />
+                                <a href="{{ route('profile.show',['profile' => $blog->user->id]) }}"><img src="{{ Storage::url($blog->user->profile['image']) }}" alt="Cover Image" class="w-full h-full object-cover" /></a>
                             @else
-                                <img src="{{ asset('assets/img/ai.jpg')}}" class="w-full h-full object-cover rounded-full" alt="profile" />
+                                <a href="{{ route('profile.show',['profile' => $blog->user->id]) }}"><img src="{{ asset('assets/img/ai.jpg')}}" class="w-full h-full object-cover rounded-full" alt="profile" /></a>
                             @endif
                         </div>
                         <div class="flex flex-col justify-center items-start">
