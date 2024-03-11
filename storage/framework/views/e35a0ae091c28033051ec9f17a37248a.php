@@ -1,0 +1,1 @@
+<?php echo "This is home" ?><?php /**PATH D:\team-project\resources\views/home.blade.php ENDPATH**/ ?>
