@@ -1,3 +1,23 @@
+<?php if (isset($component)) { $__componentOriginala591787d01fe92c5706972626cdf7231 = $component; } ?>
+<?php if (isset($attributes)) { $__attributesOriginala591787d01fe92c5706972626cdf7231 = $attributes; } ?>
+<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.navbar','data' => ['profile' => $profile ? $profile : null]] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
+<?php $component->withName('navbar'); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(Illuminate\View\AnonymousComponent::class))->getConstructor()): ?>
+<?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
+<?php endif; ?>
+<?php $component->withAttributes(['profile' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($profile ? $profile : null)]); ?>
+<?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+<?php if (isset($__attributesOriginala591787d01fe92c5706972626cdf7231)): ?>
+<?php $attributes = $__attributesOriginala591787d01fe92c5706972626cdf7231; ?>
+<?php unset($__attributesOriginala591787d01fe92c5706972626cdf7231); ?>
+<?php endif; ?>
+<?php if (isset($__componentOriginala591787d01fe92c5706972626cdf7231)): ?>
+<?php $component = $__componentOriginala591787d01fe92c5706972626cdf7231; ?>
+<?php unset($__componentOriginala591787d01fe92c5706972626cdf7231); ?>
+<?php endif; ?>
 <?php $__env->startSection('content'); ?>
 
 <div class="container mx-auto flex flex-col justify-center items-center pt-10 pb-4">
@@ -7,25 +27,25 @@
     </div>
 </div>
 
-<?php if (isset($component)) { $__componentOriginala50ebced2dec086ff974cef6ff4572f9 = $component; } ?>
-<?php if (isset($attributes)) { $__attributesOriginala50ebced2dec086ff974cef6ff4572f9 = $attributes; } ?>
-<?php $component = App\View\Components\BannerSection::resolve([] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
+<?php if (isset($component)) { $__componentOriginalcd0e6212a057a97f4ccb13fddffbc1e2 = $component; } ?>
+<?php if (isset($attributes)) { $__attributesOriginalcd0e6212a057a97f4ccb13fddffbc1e2 = $attributes; } ?>
+<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.banner-section','data' => ['categories' => $categories]] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
 <?php $component->withName('banner-section'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
-<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(App\View\Components\BannerSection::class))->getConstructor()): ?>
+<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(Illuminate\View\AnonymousComponent::class))->getConstructor()): ?>
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
-<?php $component->withAttributes([]); ?>
+<?php $component->withAttributes(['categories' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($categories)]); ?>
 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
-<?php if (isset($__attributesOriginala50ebced2dec086ff974cef6ff4572f9)): ?>
-<?php $attributes = $__attributesOriginala50ebced2dec086ff974cef6ff4572f9; ?>
-<?php unset($__attributesOriginala50ebced2dec086ff974cef6ff4572f9); ?>
+<?php if (isset($__attributesOriginalcd0e6212a057a97f4ccb13fddffbc1e2)): ?>
+<?php $attributes = $__attributesOriginalcd0e6212a057a97f4ccb13fddffbc1e2; ?>
+<?php unset($__attributesOriginalcd0e6212a057a97f4ccb13fddffbc1e2); ?>
 <?php endif; ?>
-<?php if (isset($__componentOriginala50ebced2dec086ff974cef6ff4572f9)): ?>
-<?php $component = $__componentOriginala50ebced2dec086ff974cef6ff4572f9; ?>
-<?php unset($__componentOriginala50ebced2dec086ff974cef6ff4572f9); ?>
+<?php if (isset($__componentOriginalcd0e6212a057a97f4ccb13fddffbc1e2)): ?>
+<?php $component = $__componentOriginalcd0e6212a057a97f4ccb13fddffbc1e2; ?>
+<?php unset($__componentOriginalcd0e6212a057a97f4ccb13fddffbc1e2); ?>
 <?php endif; ?>
 <section class="container mx-auto mt-10 md:px-0 px-4">
 
@@ -33,7 +53,7 @@
         <?php $__currentLoopData = $blogs; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=>$blog): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
         <div class="bg-slate-300 border border-gray-100 p-4 rounded-md hover:bg-slate-100 hover:border hover:border-2 hover:border-slate-600 transition-all duration-300">
-            <a href="blogs/<?php echo e($blog->id); ?>">
+            
 
                 <div class="mb-5">
                     <div class="w-full flex justify-start items-center space-x-3">
@@ -51,35 +71,27 @@
 
                     </div>
                 </div>
+                <a href="<?php echo e(route('blogs.show',['blog'=>$blog->id])); ?>">
+                    <div class="w-full h-[300px] bg-gray-200 flex justify-center items-center">
+                        <?php if($blog->image): ?>
+                            <img src="<?php echo e(Storage::url($blog->image['image'])); ?>" alt="blogs">
+                        <?php else: ?> 
+                            <img src="https://www.shutterstock.com/image-photo/blogging-blog-word-coder-coding-260nw-520314613.jpg" class="object-cover w-full h-[300px]" alt="logo">
+                        <?php endif; ?>
+                    </div>
 
-
-                
-                <div class="w-full h-[300px] bg-gray-200 flex justify-center items-center">
-                    <?php if($blog->image): ?>
-                        <img src="<?php echo e(Storage::url($blog->image['image'])); ?>" alt="blogs">
-                    <?php else: ?> 
-                        <img src="https://www.shutterstock.com/image-photo/blogging-blog-word-coder-coding-260nw-520314613.jpg" class="object-cover w-full h-[300px]" alt="logo">
-                    <?php endif; ?>
-                </div>
-
-            <div class="mt-3 h-[200px]">
-                <h1 class="font-bold uppercase text-lg mb-3"><?php echo e($blog->title); ?></h1>
-                <p class="text-gray-500">                 
+                    <div class="mt-3 h-[200px]">
+                        <h1 class="font-bold uppercase text-lg mb-3"><?php echo e($blog->title); ?></h1>
+                        <p class="text-gray-500">                 
                         
-                        <?php echo e(Str::substr($blog->body,0,50)); ?>
+                            <?php echo e(Str::substr($blog->body,0,50)); ?>
 
-                </p>
-
-
-                </div>
-
-            </a>
+                        </p>
+                    </div>
+                </a>
         </div>
 
         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-
-
-
     </div>
 
 

@@ -1,5 +1,5 @@
 @extends('layouts/frontend.adminindex')
-
+<x-navbar :profile="$profile ? $profile->last() : null"/>
 @section('content')
   <div class="md:w-4/5 w-full h-full grid items-center mx-auto">
     <div class="h-4/5 grid items-center">

@@ -1,3 +1,16 @@
+<?php $attributes ??= new \Illuminate\View\ComponentAttributeBag; ?>
+<?php foreach($attributes->onlyProps(['profile']) as $__key => $__value) {
+    $$__key = $$__key ?? $__value;
+} ?>
+<?php $attributes = $attributes->exceptProps(['profile']); ?>
+<?php foreach (array_filter((['profile']), 'is_string', ARRAY_FILTER_USE_KEY) as $__key => $__value) {
+    $$__key = $$__key ?? $__value;
+} ?>
+<?php $__defined_vars = get_defined_vars(); ?>
+<?php foreach ($attributes as $__key => $__value) {
+    if (array_key_exists($__key, $__defined_vars)) unset($$__key);
+} ?>
+<?php unset($__defined_vars); ?>
 <section class="sticky top-0 z-10">
     <!-- start nav  -->
     <nav class="container h-16 bg-[#f4f4f4] mx-auto lg:px-10 md:px-3  md:border-b-none shadow-lg border-b-2 border-gray-300 shadow-gray-300 ">
@@ -34,8 +47,8 @@
                         <div class="flex justify-between items-center">
                             <div class="w-[35px] h-[35px] rounded-full">
                                 
-                                <?php if($profile->last()): ?>
-                                    <img src="<?php echo e(Storage::url($profile->last()->image)); ?>" class="w-full h-full object-cover rounded-full" alt="profile" />
+                                <?php if($profile !== null): ?>
+                                    <img src="<?php echo e(Storage::url($profile->image)); ?>" class="w-full h-full object-cover rounded-full" alt="profile" />
                                 <?php else: ?>
                                     <img src="<?php echo e(asset('assets/img/ai.jpg')); ?>" class="w-full h-full object-cover rounded-full" alt="profile" />
                                 <?php endif; ?>
@@ -46,7 +59,7 @@
                         <div id="dropdown" class="capitalize mt-4 absolute right-0 hidden">
                             <ul class="min-w-36 bg-gray-200">
 
-                                <li><a href="<?php echo e(route('profile.index')); ?>" class="w-full text-[16px] inline-block hover:bg-gray-300 p-4 me-1"><i class="fas fa-user"></i> Profile</a></li>
+                                <li><a href="<?php echo e(route('profile.show',['profile' => auth()->user()->id])); ?>" class="w-full text-[16px] inline-block hover:bg-gray-300 p-4 me-1"><i class="fas fa-user"></i> Profile</a></li>
 
                                 <li><a href="" class="w-full text-[16px] inline-block hover:bg-gray-300 p-4"><i class="fas fa-cog me-1"></i>Setting</a></li>
 

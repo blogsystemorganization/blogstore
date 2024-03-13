@@ -1,3 +1,4 @@
+@props(['profile'])
 <section class="sticky top-0 z-10">
     <!-- start nav  -->
     <nav class="container h-16 bg-[#f4f4f4] mx-auto lg:px-10 md:px-3  md:border-b-none shadow-lg border-b-2 border-gray-300 shadow-gray-300 ">
@@ -34,8 +35,8 @@
                         <div class="flex justify-between items-center">
                             <div class="w-[35px] h-[35px] rounded-full">
                                 {{-- not update yet  --}}
-                                @if($profile->last())
-                                    <img src="{{ Storage::url($profile->last()->image) }}" class="w-full h-full object-cover rounded-full" alt="profile" />
+                                @if($profile !== null)
+                                    <img src="{{ Storage::url($profile->image) }}" class="w-full h-full object-cover rounded-full" alt="profile" />
                                 @else
                                     <img src="{{ asset('assets/img/ai.jpg')}}" class="w-full h-full object-cover rounded-full" alt="profile" />
                                 @endif
@@ -46,7 +47,7 @@
                         <div id="dropdown" class="capitalize mt-4 absolute right-0 hidden">
                             <ul class="min-w-36 bg-gray-200">
 
-                                <li><a href="{{route('profile.index')}}" class="w-full text-[16px] inline-block hover:bg-gray-300 p-4 me-1"><i class="fas fa-user"></i> Profile</a></li>
+                                <li><a href="{{ route('profile.show',['profile' => auth()->user()->id]) }}" class="w-full text-[16px] inline-block hover:bg-gray-300 p-4 me-1"><i class="fas fa-user"></i> Profile</a></li>
 
                                 <li><a href="" class="w-full text-[16px] inline-block hover:bg-gray-300 p-4"><i class="fas fa-cog me-1"></i>Setting</a></li>
 

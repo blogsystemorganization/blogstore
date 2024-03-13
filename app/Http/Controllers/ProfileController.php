@@ -19,21 +19,21 @@ use App\Models\Profile;
 class ProfileController extends Controller
 {
 
-    public function index()
-    {
-        $user_id = Auth::user()->id;
-        $user = User::where("id", $user_id)->first();
-        $blogs = Blog::where("user_id", $user_id)->orderBy("created_at", 'desc')->get();
+    // public function index()
+    // {
+    //     $user_id = Auth::user()->id;
+    //     $user = User::where("id", $user_id)->first();
+    //     $blogs = Blog::where("user_id", $user_id)->orderBy("created_at", 'desc')->get();
 
 
 
-        $cover = Image::where('imageable_id', $user_id)->where('imageable_type', 'App\Model\User\Cover')->get();
-        $profile = Image::where('imageable_id', $user_id)->where('imageable_type', 'App\Model\User\Profile')->get();
+    //     $cover = Image::where('imageable_id', $user_id)->where('imageable_type', 'App\Model\User\Cover')->get();
+    //     $profile = Image::where('imageable_id', $user_id)->where('imageable_type', 'App\Model\User\Profile')->get();
 
-        // dd($cover->last()->image);
+    //     // dd($cover->last()->image);
 
-        return view('profile.index', ["blogs" => $blogs, "user" => $user, "cover" => $cover, "profile" => $profile]);
-    }
+    //     return view('profile.index', ["blogs" => $blogs, "user" => $user, "cover" => $cover, "profile" => $profile]);
+    // }
 
 
     public function edit()
@@ -42,8 +42,6 @@ class ProfileController extends Controller
 
         $cover = Image::where('imageable_id', $user_id)->where('imageable_type', 'App\Model\User\Cover')->get();
         $profile = Image::where('imageable_id', $user_id)->where('imageable_type', 'App\Model\User\Profile')->get();
-
-        // dd($cover->last()->image);
 
         return view('profile.edit', ["cover" => $cover, "profile" => $profile]);
     }
@@ -54,13 +52,12 @@ class ProfileController extends Controller
         $blogs = Blog::where("user_id", $user_id)->orderBy("created_at", 'desc')->get();
 
 
-
         $cover = Image::where('imageable_id', $user_id)->where('imageable_type', 'App\Model\User\Cover')->get();
         $profile = Image::where('imageable_id', $user_id)->where('imageable_type', 'App\Model\User\Profile')->get();
+        $navProfile = Image::where('imageable_id',Auth::user()->id)->where('imageable_type','App\Model\User\Profile')->first();
 
-        // dd($cover->last()->image);
 
-        return view('profile.index', ["blogs" => $blogs, "user" => $user, "cover" => $cover, "profile" => $profile]);
+        return view('profile.index', ["blogs" => $blogs, "user" => $user, "cover" => $cover, "profile" => $profile , 'navprofile' => $navProfile]);
     }
 
 

@@ -1,5 +1,5 @@
 @extends('layouts/frontend.adminindex')
-
+<x-navbar :profile="$profile ? $navprofile : null"/>
 @section('content')
 {{-- start profile  --}}
 
@@ -61,19 +61,19 @@
 
                     <div class="mt-2 me-2">
                         <div class="flex justify-center items-center space-x-3 ">
-                            <a href="{{route("blogs.create")}}">
-                                <button class="bg-indigo-500 text-gray-200 flex justify-end items-center rounded-md md:px-5 px-2 py-2 space-x-2">
-                                    <i class="fas fa-plus"></i>
-                                    <span class="text-sm md:text-lg">Create post</span>
-                                </button>
-                            </a>
+                                <a href="{{route("blogs.create")}}">
+                                    <button class="bg-indigo-500 text-gray-200 flex justify-end items-center rounded-md md:px-5 px-2 py-2 space-x-2">
+                                        <i class="fas fa-plus"></i>
+                                        <span class="text-sm md:text-lg">Create post</span>
+                                    </button>
+                                </a>
 
-                            <a href="{{route('profile.edit',Auth::user()->id)}}">
-                                <button class="bg-gray-400 text-gray-200 flex justify-end items-center rounded-md md:px-5 px-2 py-2 space-x-2">
-                                    <i class="fas fa-edit"></i>
-                                    <span class="text-sm md:text-lg">Edit profile</span>
-                                </button>
-                            </a>
+                                <a href="{{route('profile.edit',Auth::user()->id)}}">
+                                    <button class="bg-gray-400 text-gray-200 flex justify-end items-center rounded-md md:px-5 px-2 py-2 space-x-2">
+                                        <i class="fas fa-edit"></i>
+                                        <span class="text-sm md:text-lg">Edit profile</span>
+                                    </button>
+                                </a>
                         </div>
                     </div>
 
