@@ -1,5 +1,5 @@
 @extends('layouts/frontend.adminindex')
-
+<x-navbar :profile="$profile ? $profile : null"/>
 @section('content')
 
 <div class="container mx-auto flex flex-col justify-center items-center pt-10 pb-4">
@@ -9,14 +9,14 @@
     </div>
 </div>
 
-<x-banner-section/>
+<x-banner-section :categories="$categories"/>
 <section class="container mx-auto mt-10 md:px-0 px-4">
 
     <div class="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-10">
         @foreach ($blogs as $key=>$blog)
 
         <div class="bg-slate-300 border border-gray-100 p-4 rounded-md hover:bg-slate-100 hover:border hover:border-2 hover:border-slate-600 transition-all duration-300">
-            <a href="blogs/{{$blog->id}}">
+            
 
                 <div class="mb-5">
                     <div class="w-full flex justify-start items-center space-x-3">
@@ -34,34 +34,26 @@
 
                     </div>
                 </div>
+                <a href="{{ route('blogs.show',['blog'=>$blog->id]) }}">
+                    <div class="w-full h-[300px] bg-gray-200 flex justify-center items-center">
+                        @if($blog->image)
+                            <img src="{{ Storage::url($blog->image['image']) }}" alt="blogs">
+                        @else 
+                            <img src="https://www.shutterstock.com/image-photo/blogging-blog-word-coder-coding-260nw-520314613.jpg" class="object-cover w-full h-[300px]" alt="logo">
+                        @endif
+                    </div>
 
-
-                
-                <div class="w-full h-[300px] bg-gray-200 flex justify-center items-center">
-                    @if($blog->image)
-                        <img src="{{ Storage::url($blog->image['image']) }}" alt="blogs">
-                    @else 
-                        <img src="https://www.shutterstock.com/image-photo/blogging-blog-word-coder-coding-260nw-520314613.jpg" class="object-cover w-full h-[300px]" alt="logo">
-                    @endif
-                </div>
-
-            <div class="mt-3 h-[200px]">
-                <h1 class="font-bold uppercase text-lg mb-3">{{$blog->title}}</h1>
-                <p class="text-gray-500">                 
+                    <div class="mt-3 h-[200px]">
+                        <h1 class="font-bold uppercase text-lg mb-3">{{$blog->title}}</h1>
+                        <p class="text-gray-500">                 
                         {{-- {{Str::limit($blog->body,20)}} --}}
-                        {{Str::substr($blog->body,0,50)}}
-                </p>
-
-
-                </div>
-
-            </a>
+                            {{Str::substr($blog->body,0,50)}}
+                        </p>
+                    </div>
+                </a>
         </div>
 
         @endforeach
-
-
-
     </div>
 
 

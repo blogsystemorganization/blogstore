@@ -1,6 +1,5 @@
 @extends('layouts/frontend.adminindex')
-
-
+<x-navbar :profile="$profile ? $profile : null"/>
 @section('content')
 <div class="container mx-auto">
 

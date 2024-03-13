@@ -15,10 +15,12 @@ class BlogController extends Controller
 {
     public function index()
     {
-        $blogs = Blog::with('category', 'user','image','user.profile')->orderBy('created_at', 'desc')->filter(request(['search', 'username', 'category']))
+    $blogs = Blog::with('category', 'user','image','user.profile')->orderBy('created_at', 'desc')->filter(request(['search', 'username', 'category']))
             ->paginate(6)
             ->withQuerystring();
-        return view('blog.index', ["blogs" => $blogs]);
+        $categories = Category::all();
+        $navProfile = Image::where('imageable_id',Auth::user()->id)->where('imageable_type','App\Model\User\Profile')->first();
+        return view('blog.index', ["blogs" => $blogs , 'categories' => $categories,'profile'=>$navProfile]);
     }
     public function create()
     {
@@ -63,9 +65,11 @@ class BlogController extends Controller
     public function show(Blog $blog)
     {
         $comments = $blog->comments()->latest()->paginate(5);
+        $navProfile = Image::where('imageable_id',Auth::user()->id)->where('imageable_type','App\Model\User\Profile')->first();
         return view("blog.detail", [
             'blog' => $blog,
-            'comments' => $comments
+            'comments' => $comments,
+            'profile' => $navProfile
         ]);
     }
 

@@ -52,6 +52,6 @@ class User extends Authenticatable
     }
 
     public function profile(){
-        return $this->hasOne(Profile::class,'imageable_type',);
+        return $this->hasOne(Profile::class);
     }
 }
