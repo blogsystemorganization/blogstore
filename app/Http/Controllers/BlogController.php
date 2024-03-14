@@ -59,7 +59,7 @@ class BlogController extends Controller
         $blogimage->imageable_type = Blog::class;
         $blogimage->user_id = $user_id;
         $blogimage->save();
-        return redirect("profile");
+        return redirect("/");
     }
 
     public function show(Blog $blog)

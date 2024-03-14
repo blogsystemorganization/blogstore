@@ -28,7 +28,7 @@
         <tbody class="text-white">
             @foreach ($categories as $key=>$category)
                 <tr class="border-b border-b-whtie my-5">
-                    <td class="px-2 py-3">{{++$key}}</td>
+                    <td class="px-2 py-3">{{$key+ $categories->firstItem()}}</td>
                     <td class="px-2 py-3">{{$category->name}}</td>
                     <td class="px-2 py-3">{{$category->created_at->format('d M Y')}}</td>
                     <td class="px-2 py-3">

@@ -32,8 +32,7 @@
             @csrf
             <div class="mb-4">
                 {{-- <label for="comment" class="block text-sm font-medium text-gray-600">Comment</label> --}}
-                <textarea id="comment" name="body" rows="4" class="w-full border resize-none outline-none p-2" placeholder="Your Comment">
-                </textarea>
+                <textarea id="comment" name="body" rows="1" class="w-full border resize-none outline-none p-2" placeholder="Your Comment"></textarea>
                 @error('body')
                     <p class="text-red-800 font-bold py-2">{{$message}}</p>
                 @enderror
