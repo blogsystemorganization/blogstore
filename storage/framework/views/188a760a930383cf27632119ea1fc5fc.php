@@ -27,7 +27,7 @@
         <tbody class="text-white">
             <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=>$category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                 <tr class="border-b border-b-whtie my-5">
-                    <td class="px-2 py-3"><?php echo e(++$key); ?></td>
+                    <td class="px-2 py-3"><?php echo e($key+ $categories->firstItem()); ?></td>
                     <td class="px-2 py-3"><?php echo e($category->name); ?></td>
                     <td class="px-2 py-3"><?php echo e($category->created_at->format('d M Y')); ?></td>
                     <td class="px-2 py-3">

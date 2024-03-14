@@ -79,6 +79,7 @@
 
                     <div class="mt-2 me-2">
                         <div class="flex justify-center items-center space-x-3 ">
+                            <?php if($user->id === auth()->user()->id): ?>
                                 <a href="<?php echo e(route("blogs.create")); ?>">
                                     <button class="bg-indigo-500 text-gray-200 flex justify-end items-center rounded-md md:px-5 px-2 py-2 space-x-2">
                                         <i class="fas fa-plus"></i>
@@ -92,6 +93,7 @@
                                         <span class="text-sm md:text-lg">Edit profile</span>
                                     </button>
                                 </a>
+                            <?php endif; ?>
                         </div>
                     </div>
 
@@ -120,7 +122,7 @@
                         <?php $__currentLoopData = $blogs; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $blog): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     
                         <div class="bg-slate-200 border border-gray-100 shadow-lg p-4 rounded-md">
-                            <a href="blogs/<?php echo e($blog->id); ?>">
+                            <a href="<?php echo e(route('blogs.show',['blog'=>$blog->id])); ?>">
 
                             <div class="mb-5">
                                 <div class="w-full flex justify-start items-center space-x-3">

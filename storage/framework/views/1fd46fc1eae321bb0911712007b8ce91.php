@@ -34,8 +34,7 @@
             <?php echo csrf_field(); ?>
             <div class="mb-4">
                 
-                <textarea id="comment" name="body" rows="4" class="w-full border resize-none outline-none p-2" placeholder="Your Comment">
-                </textarea>
+                <textarea id="comment" name="body" rows="1" class="w-full border resize-none outline-none p-2" placeholder="Your Comment"></textarea>
                 <?php $__errorArgs = ['body'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
